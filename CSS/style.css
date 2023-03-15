@@ -1,0 +1,184 @@
+/*menu princiapl*/
+
+.menu{
+    font-family: Arial, Helvetica, sans-serif;
+    list-style: none;
+    padding: 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+        }  
+    
+    .menu li a {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    display: block;
+    font-size: 18px;
+    } 
+    
+    .menu li {
+    display: inline-block; /*sirve para que el menu se vea tipo colimna*/
+    text-align: center;
+    } 
+    
+    .menu li a:hover {
+        background: rgb(228, 5, 180);/*sirve para que al momento de pasar el cursor por el menu, cambie de color*/
+    
+        
+        } 
+    
+
+/*para crear las imagenes en movimiento*/
+
+.slider {
+    width: 95%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider ul {
+display: flex;
+padding: 0;
+width: 400%;
+animation: cambio 20s infinite;
+animation-direction: alternate;
+animation-timing-function: ease-in;
+}
+
+
+.slider li { 
+    width: 100%;
+    list-style: none;
+}
+
+.slider img { 
+    width: 100%;  
+}
+@keyframes cambio {
+    0% { margin-left: 0;}
+    20% { margin-left: 0;}
+
+    25% { margin-left: -100%;}
+    45% { margin-left: -100%;}
+
+    50% { margin-left: -200%;}
+    70% { margin-left: -200%;}
+
+    75% { margin-left: -300%;}
+    100% { margin-left: -300%;}
+}
+
+
+main{
+
+    text-align: center; /* para centrar todo el main*/
+    margin: 5px;
+}
+
+h2{
+    color: rgb(228, 5, 180);
+}
+
+
+/* estilos de pie de pagina*/
+
+footer{
+
+    position: relative;
+    margin-top: -10px;
+    width: 100%;
+    padding: 50px;
+    clear: both;
+    background: rgb(228, 5, 180);
+    
+    color: white;
+    font-family: arial;
+    font-size: 15px;
+}
+
+.pie-de-pagina{
+     margin: 3px
+}
+
+.caja{
+    display: table-cell;
+    padding: 10px;
+}
+
+h1{
+font-size: 40px;
+}
+
+h2{
+    font-size: 35px;
+    }
+
+.ubicacion{
+     display: flex; /* Se utiliza para poner un parrafo o titulo al lado del otro*/
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 12px; /* Se utiliza para poner tamaño a la letra*/
+     
+        }
+
+ .espacio1 {
+   margin-left: 10px;/* Se utiliza para dar espacio entre textos*/
+   
+            
+            }
+
+
+.espacio2 {
+margin-right: 5px; /* Se utiliza para dar espacio entre textos*/
+margin-left: 5px;/* Se utiliza para dar espacio entre textos*/
+
+}
+
+.contenedor {
+    border-style: solid;
+    border-color: rgb(228, 5, 180);
+  }
+
+.contenedor{
+
+    max-width: 1500px; /*Corresponde al ancho maximo */
+    width: 90%; /*Corresponde al ancho maximo en la pagina del div creado */
+   
+    display: grid;/*se utiliza para trabajar con css grid */
+    grid-template-columns: 50% auto; /*Se utiliza para crear las 2 columnas, 
+    la primera tendra un espacio del 30% y la segunda que dice auto el resto */
+    margin: 5%;
+
+}
+
+aside{
+padding: 0 15px;
+
+}
+
+
+aside .lista{
+
+    padding-top: 20px;
+    background: rgb(240, 213, 234); /*Corresponde al color de fondo */
+list-style: none; /*sirve para quitar los puntos de la lista */
+font-family: Arial, Helvetica, sans-serif;
+font-size: 18px;
+
+}
+
+.lista li a:hover{
+    background: rgb(233, 32, 189);/*sirve para que al momento de pasar el cursor por el menu, 
+    cambie de color*/
+
+    
+    } 
+
+
+.parrafo{
+
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
