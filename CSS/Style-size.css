@@ -14,19 +14,17 @@
 
 }
 
-.html{
-    position: absolute;
-}
 
 .Navegador{
     width: auto;
     height: 130px;
     margin-top: 0px;
     margin-left: -10px;
-    background-color: rgba(80, 77, 79, 0.911);
+    background-color: rgba(0, 0, 0, 0.938);
     border-color: rgb(10, 10, 10);
     border-style: solid;
     border-width: 10px; 
+    
 }
 .menu{
     margin-left: 320px;
@@ -81,6 +79,7 @@
 }
 
 .menu-iconos{
+    display: flex;
   position: absolute;
   margin-left: 400px;
   background-color: rgba(5, 5, 5, 0.966);
@@ -120,35 +119,52 @@
 }
 
 .Promociones{
-        margin-top: 60px;
-        margin-left: -8px;
+        margin-top: 0px;
+        margin-left: -50px;
         width: auto;
-        height: 150px;
-        background-color: rgba(0, 0, 0, 0.322);
+        height: 350px;
+        background-color: rgba(255, 0, 234, 0.959);
         background-position: center;
         text-align: center;
         overflow: hidden;
         border-radius: 10px;
         border: 10px;
-        border-color: rgba(255, 4, 142, 0.938);
+        border-color: rgba(255, 0, 234, 0.959);
         border-style: solid;
 }
 
 .Promociones ul {
     display: flex;
     height: 400px;
-  animation: cambio 20s infinite;
+    animation: cambio 20s infinite;
     animation-direction: alternate;
     animation-timing-function: ease-in;
     margin-top: 30px;
   }
   .Promociones img{
     width: auto;
-    height: 150px;
+    height: 350px;
     border-radius: 10px;
     padding: 0px;
     margin-top: -30px;
     border: 2px;
     border-color: rgb(255, 4, 180);
     border-style: solid;
+  }
+
+  @keyframes cambio {
+  
+    0% { margin-left: 0;}
+    20% { margin-left: 0;}
+  
+    25% { margin-left: -100%;}
+    45% { margin-left: -100%;}
+  
+    50% { margin-left: -200%;}
+    70% { margin-left: -200%;}
+  
+    75% { margin-left: -300%;}
+    100% { margin-left: -300%;}
+
+
   }
