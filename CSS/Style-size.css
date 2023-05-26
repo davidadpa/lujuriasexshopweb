@@ -1,0 +1,94 @@
+.banner{
+    text-align: center;
+    background-color: rgba(240, 0, 132, 0.199);
+    display: none;
+}
+
+.banner img{
+    width: 1000px;
+    height: auto;
+    border-color: brown;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 20%;
+
+}
+
+
+
+.Navegador{
+    width: auto;
+    height: 120px;
+    margin-top: 0px;
+    margin-left: -10px;
+    background-color: rgba(80, 77, 79, 0.911);
+    border-color: rgb(10, 10, 10);
+    border-style: solid;
+    border-width: 10px;
+
+
+    
+    
+}
+.Logo{
+    display: inline-flex;
+    margin-top: -40px;
+}
+.Logo img{
+    width: 200px;
+    height: auto;
+}
+
+.buscador{
+    display: flex;
+    border-color: aquamarine;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 6px;
+    margin-top: -40px;
+    position: absolute;
+}
+.buscador input{
+    width: 600px;
+    height: 30px;
+
+}
+.menu{
+    margin-left: 200px;
+    margin-top: -90px;
+}
+.menus{
+    width: 800px;
+    display: flex;
+    position: absolute;
+    text-align: center;
+    
+}
+
+.menu select{
+    text-decoration: none;
+    color: rgb(228, 5, 180);
+    padding: 0px;
+    border-color: transparent;
+    background-color: transparent;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 6px;
+    font-size: 18px;
+   
+}
+.menus select:hover{
+    background: rgb(99, 2, 78);
+}
+
+.menu-iconos{
+    text-align: center;
+
+}
+.menu-iconos img{
+    width: 40px;
+    height: auto;
+    display: none;
+
+
+}
