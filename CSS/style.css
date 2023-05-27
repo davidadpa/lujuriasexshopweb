@@ -1,0 +1,659 @@
+body{ /* sirbe para formatear la pagina*/
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}	
+
+
+.whatsapp{
+  display: flex;
+  flex-direction: row;
+  padding: 3px 5px;
+  gap: 5px;
+
+}
+
+.whatsapp-img{
+  width: 70px;
+  height: 60px;
+  cursor: pointer; /*sirve para que el cursor cambie cuando pase por el icono*/
+  border: none; 
+  outline: none;
+  background: none;
+}
+
+.whatsapp-img:hover{ /* para que se mueva la imagen*/
+  transform: translateY(5px);
+  transition:transform 0.3s ease-in-out ; /* es el tiempo en que se mueva la imagen*/
+}
+
+
+.redes-sociales{
+  margin-left: 700px;
+  gap: 1px;
+}
+
+.redes-sociales-img{
+  width: 50px;
+  height: 50px;
+  cursor: pointer; /*sirve para que el cursor cambie cuando pase por el icono*/
+  border: none; 
+  outline: none;
+  background: none;
+}  
+ 
+.redes-sociales-img:hover{ /* para que se mueva la imagen*/
+  transform: translateY(5px);
+  transition:transform 0.3s ease-in-out ; /* es el tiempo en que se mueva la imagen*/
+}
+
+.logo-titulo{
+  display: flex;
+  flex-direction: row;
+  margin-left: 5px;
+}
+
+
+h1{
+  font-size: 40px;
+  color: rgb(228, 5, 180);
+  font-family: 'Courgette', cursive;
+  /* tambien se pueden utilizar estos estilos de google fonts
+  font-family: 'Bad Script', cursive;
+  font-family: 'Beau Rivage', cursive;
+  font-family: 'Petit Formal Script', cursive;
+  font-family: 'Pinyon Script', cursive;
+*/
+}
+
+h2{
+  font-size: 35px;
+  color: rgb(228, 5, 180);
+  text-align: center;
+  font-family: 'Courgette', cursive;
+  margin-top: 0px;
+}
+
+h3{
+  font-family: 'Courgette', cursive;
+  color: rgb(228, 5, 180);
+  font-size: 25px;
+}
+
+h4{
+  font-family: 'Courgette';
+}
+
+
+
+.parrafo{
+  font-size: 18px;
+ margin-top: -20px;
+ margin-left: 30px;
+ margin-right: 30px;
+}
+
+.ubicacion{
+  display: flex; /* Se utiliza para poner un parrafo o titulo al lado del otro*/
+  font-size: 14px; /* Se utiliza para poner tamaño a la letra*/
+  margin-left: 30px; 
+  gap: 5px;
+}
+
+.ubicacion-texto{
+  text-decoration: none;
+  outline: none;
+  color: rgb(228, 5, 180);
+  font-family: 'Courgette', cursive;
+}
+
+.ubicacion-texto:hover {
+  background: rgb(99, 2, 78);/*sirve para que al momento de pasar el cursor por el menu, cambie de color*/
+  border-radius: 15px;
+  padding: 2px;
+} 
+
+.img-usuario{
+  width: 70px;
+  height: 70px;
+  cursor: pointer; /*sirve para que el cursor cambie cuando pase por el icono*/
+  border: none; 
+  outline: none;
+  background: none;
+  margin-left:760px;
+}
+
+/*estilo de iconos del buscador*/
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.buscador{
+  border: solid 1px rgb(228, 5, 180); /*es un bodege delgado*/
+  border-radius:10px ;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.buscador:focus-within{
+
+  border: solid 1px rgb(228, 5, 180); /*se utiliza el focus para que al momento de dar click en el bucador le salga un borde*/
+  box-shadow:0px 2px 5px rgb(228, 5, 180) ;/*dar sonbra al div del buscador*/
+}
+
+.buscador input{
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 18px;
+  color: rgb(228, 5, 180);
+  flex: auto; /*para que quede a la derecha los iconos */
+
+}
+
+.buscador input::placeholder { color:rgb(228, 5, 180); }
+
+.buscador .acciones{
+  display: flex;
+  gap: 10px;
+}
+
+.buscador .acciones button{
+  border: none; 
+  outline: none;
+  background: none;
+  cursor: pointer;
+  color: fuchsia;
+}
+
+.buscador .acciones button:hover{
+  color: rgb(99, 2, 78);
+}
+
+
+/*menu princiapl*/
+
+.menu{
+  font-family: sans-serif;
+  list-style: none;
+  padding: 0;
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+}  
+
+.menu li a {
+  text-decoration: none;
+  color: rgb(228, 5, 180);
+  padding: 5px;
+  display: block;
+  font-size: 18px;
+} 
+  
+.menu li {
+  display: inline-block; /*sirve para que el menu se vea tipo colimna*/
+  text-align: center;
+} 
+  
+.menu li a:hover {
+  background: rgb(99, 2, 78);/*sirve para que al momento de pasar el cursor por el menu, cambie de color*/
+  border-radius: 15px;
+} 
+
+
+
+/*formato de cajas de paquete discreto*/
+
+.cajas{
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.caja-img{
+  width: 65%;
+  height: 80%;
+
+ 
+}
+
+
+/*para crear las imagenes en movimiento*/
+.slider {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slider ul {
+  display: flex;
+  padding: 0;
+  width: 400%;
+  animation: cambio 20s infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in;
+}
+
+
+.slider li { 
+  width: 100%;
+  list-style: none;
+}
+
+.slider img { 
+  width: 1110px;
+  height: 340px;
+  width:100%;
+}
+
+@keyframes cambio {
+  0% { margin-left: 0;}
+  20% { margin-left: 0;}
+
+  25% { margin-left: -100%;}
+  45% { margin-left: -100%;}
+
+  50% { margin-left: -200%;}
+  70% { margin-left: -200%;}
+
+  75% { margin-left: -300%;}
+  100% { margin-left: -300%;}
+}
+
+
+
+/*aqui empiza el formato de las cajas con los productos mas vendidos*/
+
+
+.mas-vendidos-bloque1{
+  display: flex;
+  flex-direction: row;
+  margin-left: 180px;
+}
+
+.mas-vendidos-bloque2{
+  display: flex;
+  flex-direction: row;
+  margin-left: 180px;
+}
+
+.mas-vendidos-bloque1-img{
+width: 250px;
+height: 350px;
+gap: 5px;
+border-radius: 15px;
+}
+
+.mas-vendidos-bloque2-img{
+  width: 250px;
+  height: 350px;
+  gap: 5px;
+  border-radius: 15px;
+  }
+
+
+  /*Aqui empieza los menus de los iconos*/
+
+  .menus-iconos-bloque1{
+    display: flex;
+    flex-direction: row;
+    margin-left: 180px;
+  }
+  
+  .menus-iconos-bloque2{
+    display: flex;
+    flex-direction: row;
+    margin-left: 180px;
+  }
+  
+  .menus-iconos-bloque1-img{
+  width: 250px;
+  height: 350px;
+  gap: 5px;
+  border-radius: 15px;
+  }
+  
+  .menus-iconos-bloque2-img{
+    width: 250px;
+    height: 350px;
+    gap: 5px;
+    border-radius: 15px;
+    }
+  
+  .menus-iconos-bloque1-img:hover{ /* para que se mueva la imagen*/
+    transform: translateY(-7px);
+    transition:transform 0.3s ease-in-out ; /* es el tiempo en que se mueva la imagen*/
+    }
+
+  .menus-iconos-bloque2-img:hover{ /* para que se mueva la imagen*/
+    transform: translateY(-7px);
+    transition:transform 0.3s ease-in-out ; /* es el tiempo en que se mueva la imagen*/
+    }
+  
+
+/*aqui empiesa de main y aside de las paginas de vibradores, consolodaores, extras, etc*/
+  .contenedor{
+
+    max-width: 2000px; /*Corresponde al ancho maximo */
+    width: 90%; /*Corresponde al ancho maximo en la pagina del div creado */
+    display: grid;/*se utiliza para trabajar con css grid */
+    grid-template-columns: 30% auto; /*Se utiliza para crear las 2 columnas, la primera tendra un espacio del 30% y la segunda que dice auto el resto */
+    margin-left: 70px;
+  }
+  
+  aside{
+    padding: 0 15px;
+  }
+  
+  aside .lista{
+    padding-top: 20px;
+    background: rgb(240, 213, 234); /*Corresponde al color de fondo */
+    list-style: none; /*sirve para quitar los puntos de la lista */
+    font-size: 18px;
+    border-radius: 15px;
+    background-image: url('https://img.freepik.com/vector-gratis/textura-acuarela-rosa_125540-958.jpg?w=826&t=st=1675462555~exp=1675463155~hmac=0abeefbcbf2406e3b065086dbe94e2338bf5f08e730a3f0b7f7e3afa29e75060');
+    display: flex;
+    flex-direction: column;
+  }
+
+ 
+  .lista li a:hover{
+    background: rgb(99, 2, 78);/*sirve para que al momento de pasar el cursor por el menu, cambie de color*/ 
+    border-radius: 15px; 
+    padding: 3px; 
+  } 
+
+  .sub-menus{
+    text-decoration: none;
+    outline: none;
+    color: rgb(228, 5, 180);
+  }
+
+  
+
+
+  .cajas-productos-individuales{
+    width: 250px;
+    height: 350px;
+    border-radius: 15px;
+  }
+
+  .imagen-debajo-sub-menus{
+    width: 335px;
+    height: 350px;
+    border-radius: 15px;
+    margin-top: 5px;
+
+  }
+
+
+  .contacto{
+    max-width: 2000px; /*Corresponde al ancho maximo */
+    width: 90%; /*Corresponde al ancho maximo en la pagina del div creado */
+    display: grid;/*se utiliza para trabajar con css grid */
+    grid-template-columns: 75% auto; /*Se utiliza para crear las 2 columnas, la primera tendra un espacio del 30% y la segunda que dice auto el resto */
+    margin-top: -30px;
+    margin-left: 30px;
+}
+
+.productos-destacados{
+  margin-left: 100px;
+}
+
+.productos-destacados-contacto{
+  width: 120px;
+  height: 120px;
+  margin-left: 60px;
+}
+
+.mensaje-parte1{
+  width: 600px;
+}
+
+.mensaje-parte2{
+  width: 600px;
+  height: 400px;
+}
+
+.boton-enviar{
+  width: 100px;
+  height:30PX;
+}
+
+
+.contenedor_descripcion_productos{
+  max-width: 2000px; /*Corresponde al ancho maximo */
+  width: 90%; /*Corresponde al ancho maximo en la pagina del div creado */
+  display: grid;/*se utiliza para trabajar con css grid */
+  grid-template-columns: 30% auto ;/*Se utiliza para crear las 2 columnas, la primera tendra un espacio del 30% y la segunda que dice auto el resto */
+  margin-left: 10px;
+} 
+
+.cantidad{
+  text-align: left;
+}
+
+
+.descripcion{
+ margin: 15px;
+ margin-left: 20px;
+ padding-left: 20px;  
+ border: solid 2px rgb(228, 5, 180); /*es un bodege delgado*/
+}
+
+
+/* estilos de pie de pagina*/
+
+footer{
+  background: rgb(228, 5, 180);
+  color: black;
+  border-radius: 40px;
+  padding-left: 15px;
+  background-image: url('https://img.freepik.com/vector-gratis/fondo-rosa-ondas-abstractas_1393-257.jpg?w=826&t=st=1675124278~exp=1675124878~hmac=c3b575399a08fe5604e5c9e89e95d693fc90953d703053b6e038b81823153a66');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.pie-de-pagina{
+  margin: 3px
+}
+
+.caja{
+  display: table-cell;
+  padding: 10px;
+}
+
+.iconos-pie-de-pagina{
+  width: 60px;
+  height: 50px;
+
+}
+
+
+.iconos-pie-de-pagina:hover{ /* para que se mueva la imagen*/
+  transform: translateY(-7px);
+  transition:transform 0.3s ease-in-out ; /* es el tiempo en que se mueva la imagen*/
+}
+
+.imagenes-medios-de-pago{
+  width: 80px;
+  height: 40px;
+}
+
+
+
+/* ajustes a pantallas pequeñas*/
+@media(max-width: 680px){
+  .redes-sociales{
+   display: flex;
+   flex-direction: column;
+  height: 180uv;
+  margin-left: 70px;
+  }
+  .logo-titulo{
+    height: 180uv;
+    margin-top:-140px ;
+  }
+  .img-usuario{
+    margin-left: -170px;
+    margin-top: 70px;
+  }
+  .menu{
+    display: flex;
+    flex-direction: column;
+  }
+  .mas-vendidos-bloque1{
+    margin-left: 5px;
+  }
+  .mas-vendidos-bloque1-img{
+    width: 120px;
+    height: 130px;
+    border-radius: 15px;
+  }
+  .mas-vendidos-bloque2{
+    margin-left: 5px;
+  }
+  .mas-vendidos-bloque2-img{
+    width: 120px;
+    height: 130px;
+    border-radius: 15px;
+  }
+
+  .menus-iconos-bloque1{
+    margin-left: 5px;
+  }
+  .menus-iconos-bloque1-img{
+    width: 120px;
+    height: 130px;
+    border-radius: 15px;
+  }
+  .menus-iconos-bloque2{
+    margin-left: 5px;
+  }
+  .menus-iconos-bloque2-img{
+    width: 120px;
+    height: 130px;
+    border-radius: 15px;
+  }
+  h2{
+    font-size: 25px;
+  }
+  h3{
+    font-size: 16px;
+  }
+  h4{
+    font-size: 14px;
+  }
+  p{
+    font-size: 14px;
+    text-align: justify;
+  }
+  .imagenes-medios-de-pago{
+    width: 60px;
+    height: 30px;
+  }
+  .iconos-pie-de-pagina{
+    width: 30px;
+    height: 30px;
+  }
+  .slider img {  
+    height: 200px;
+  }
+
+  .parrafo{
+    font-size: 15px;
+  }
+
+  aside{
+    margin-right:-150px ;
+  }
+  
+  .sub-menus{
+    margin-left: -30px;
+    font-size: 15px;
+  }
+  
+  .cajas-productos-individuales{
+    width: 190px;
+    height: 230px;
+    border-radius: 15px;
+  }
+
+  main{
+    margin-left: 5px;
+  }
+  .contenedor{
+    margin-left: 0px;
+  }
+  .imagen-debajo-sub-menus{
+    width: 250px;
+    height: 290px;
+  }
+  .mensaje-parte1{
+  width: 350px;
+  }
+
+  .mensaje-parte2{
+  width: 350px;
+  height: 200px;
+  }
+  .boton-enviar{
+  width: 50px;
+  height:20PX;
+}
+
+.contacto{
+  margin-left: 0px;
+}
+
+.productos-destacados-contacto{
+  width: 120px;
+  height: 120px;
+  margin-left: -120px;
+}
+
+.titulo-productos-destacados-contacto{
+  margin-left: -100px;
+}
+
+.main-cajas{
+  margin-left: 160px;
+
+}
+
+
+.main-cajas-producto-individual{
+  
+  margin-left: 130px;
+ 
+}
+
+}
