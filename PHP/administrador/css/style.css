@@ -7,4 +7,16 @@ margin-bottom: -17%;
 
 }
 
+.logo-inicio{
+   
+    width: 40%;
+display: flex;
+margin-left: 30%;
+margin-top: -10%;
+margin-bottom: -17%;
+    }
 
+.contenedor-productos{
+
+    margin-left: 20%;
+}

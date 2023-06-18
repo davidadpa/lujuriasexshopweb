@@ -1,7 +1,17 @@
 <?php 
+session_start();
 if($_POST){
-    header('location:inicio.php');
-}
+    if(($_POST['usuario']=="administrador")&&($_POST['contrasenia']=="sexshop")){
+        $_SESSION['usuario']=="ok";
+        $_SESSION['nombreUsuario']=="administrador";
+        header('Location: inicio.php');
+    }else{
+        $mensaje="Error: EL usuario y/o contraseña son incorrectos";
+    }
+};
+
+
+
 ?>
 
 
@@ -21,9 +31,9 @@ if($_POST){
 
 
   <div class="logo-titulo">
-        <a href="index_admin.php">
+       
         <img src="img/logo_nuevo_final.png" class="logo" alt="logo lujuriasexshop">
-        </a>
+        
         <br>
     </div>
       
@@ -40,6 +50,12 @@ if($_POST){
                         Login
                     </div>
                     <div class="card-body">
+
+                    <?php if(isset($mensaje)) {?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo $mensaje;?>
+                        </div>
+                    <?php }?>
 
                         <form method='POST'>
                         <div class = "form-group">
