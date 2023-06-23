@@ -35,7 +35,9 @@
         <br>
         <div class="usuario">
           <br>
+          <a href="./login_clientes.php">
           <img src="img/usuario.png" alt="usuario" class="img-usuario">
+          </a>
         </div>
       </div>
     </div>
