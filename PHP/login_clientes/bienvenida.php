@@ -82,12 +82,22 @@ if(!isset($_SESSION['usuario'])){
     </ul>
     <br>
 
+    <div>
+      <h1> Cuenta</h1>
+      <a href="cerrar_sesion.php">Cerrar sesion</a>
+    </div>
 
-<h1> Bienvenido a mi mundo</h1>
-<a href="cerrar_sesion.php">Cerrar sesion</a>
+    <div>
+      <h1> Historial de pedidos</h1>
+      <p>Aún no has realizado ningún pedido </p>
+    </div>
+
+    <br>
+    <br>
+    <br>
 
   
-<br>
+    <br>
     <footer>
       <div class="pie-de-pagina"><!--corresponde al pie de pagina, se muestra en 3 columnas-->
         <div class="caja">

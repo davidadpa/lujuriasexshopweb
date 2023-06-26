@@ -1,3 +1,5 @@
+<?php session_start(); ?> <!-- se utiliza para trabajar con sesiones-->
+
 <!DOCTYPE html>
 <html lang="es">
   <head>

@@ -1,6 +1,15 @@
 
 <?php include("template/cabecera.php"); ?> <!--corresponde a todo el encabezado de las paginas web desde el logo hasta los menus-->
 
+<?php
+include("administrador/config/db.php"); 
+
+$sentenciaSQL= $conexion->prepare("SELECT * FROM tlb_producto"); //CREA LISTA DE PRODUCTOS DESDE LA BASE DE DATOS
+$sentenciaSQL->execute();
+$lista_producto=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC); 
+
+?>
+
     <main>
       <div class="cajas">
         <div class="caja">
@@ -28,36 +37,40 @@
 
       <h2>LO MAS VENDIDO</h2> <!-- se deja el espacio para los 8 productos mas vendidos-->
       
-      <div class="mas-vendidos">
-        <div class="mas-vendidos-bloque1">
-          <a href="3-descripcion individual del producto.html"><img src="img/gel erotico.jpg" alt="imagen de producto" class="mas-vendidos-bloque1-img"></a>
-          <img src="img/cuadro.jpg" alt="imagen de producto" class="mas-vendidos-bloque1-img"> 
-          <img src="img/cuadro.jpg" alt="imagen de producto" class="mas-vendidos-bloque1-img"> 
-          <img src="img/cuadro.jpg" alt="imagen de producto" class="mas-vendidos-bloque1-img"> 
+      <?php foreach($lista_producto as $producto){?>
+
+        <div>  
+          <div class="col-md-3" >
+            <div class="card"> 
+              <img class="card-img-top" src="img/<?php echo $producto['producto_imagen'];?>" alt="">
+              <div class="card-body">
+                <h4 class="card-title"> <?php echo $producto['producto_nombre']?></h4>
+                <h4> <?php echo $producto['producto_precio_venta']?></h4>
+                <a name="" id="" class="btn btn-primary" href="" role="button"> ver mas </a>
+              </div>
+            </div>
+            <br>
+          </div>
+       <?php }?>
         </div>
-        
-        <div class="mas-vendidos-bloque2">  
-          <img src="img/cuadro.jpg" alt="imagen de producto" class="mas-vendidos-bloque2-img"> 
-          <img src="img/cuadro.jpg" alt="imagen de producto" class="mas-vendidos-bloque2-img"> 
-          <img src="img/cuadro.jpg" alt="imagen de producto" class="mas-vendidos-bloque2-img"> 
-          <img src="img/cuadro.jpg" alt="imagen de producto" class="mas-vendidos-bloque2-img"> 
-        </div>
-      </div>
+      
+      
+      
       <br>
       <h2>NUESTRO PRODUCTOS</h2> <!--Es el mismo menu principal pero en forma de imagenes-->
       <div class="menus-iconos">
         <div class="menus-iconos-bloque1">
-          <a href="2-vibradores.html"><img src="img/VIBRADORES.jpg" alt="menu vibradores" class="menus-iconos-bloque1-img"></a>
-          <a href="2-consoladores.html"><img src="img/CONSOLADORES.jpg" alt="menu consoladores" class="menus-iconos-bloque1-img"></a>
-          <a href="2-Juguetes anales.html"><img src="img/JUGETES ANALES.jpg" alt="menu jugetes anales" class="menus-iconos-bloque1-img"> </a>
-          <a href="2-hombres.html"><img src="img/HOMBRES.jpg" alt="menu hombres" class="menus-iconos-bloque1-img"></a>
+          <a href="vibradores.php"><img src="img/VIBRADORES.jpg" alt="menu vibradores" class="menus-iconos-bloque1-img"></a>
+          <a href="consoladores.php"><img src="img/CONSOLADORES.jpg" alt="menu consoladores" class="menus-iconos-bloque1-img"></a>
+          <a href="jugetes_anales.php"><img src="img/JUGETES ANALES.jpg" alt="menu jugetes anales" class="menus-iconos-bloque1-img"> </a>
+          <a href="hombres.php"><img src="img/HOMBRES.jpg" alt="menu hombres" class="menus-iconos-bloque1-img"></a>
         </div>
         <br>
         <div class="menus-iconos-bloque2">
-          <a href="2-aceites y lubricantes.html"><img src="img/lubricante-intimo-primer-plano-sexual-comodo-sobre-fondo-color_441923-229.jpg" alt="menu lubricantes" class="menus-iconos-bloque2-img"></a>
-          <a href="2-lenceria.html"><img src="img/LENCERIA.jpg" alt="menu lenceria" class="menus-iconos-bloque2-img"></a>
-          <a href="2-sado y fetiche.html"><img src="img/SADO.jpg" alt="menu sado y fetiche" class="menus-iconos-bloque2-img"></a>
-          <a href="2-extras.html"><img src="img/EXTRAS.jpg" alt="menu extras" class="menus-iconos-bloque2-img"></a>
+          <a href="lubricantes.php"><img src="img/lubricante-intimo-primer-plano-sexual-comodo-sobre-fondo-color_441923-229.jpg" alt="menu lubricantes" class="menus-iconos-bloque2-img"></a>
+          <a href="lenceria.php"><img src="img/LENCERIA.jpg" alt="menu lenceria" class="menus-iconos-bloque2-img"></a>
+          <a href="sado.php"><img src="img/SADO.jpg" alt="menu sado y fetiche" class="menus-iconos-bloque2-img"></a>
+          <a href="extras.php"><img src="img/EXTRAS.jpg" alt="menu extras" class="menus-iconos-bloque2-img"></a>
         </div>
       </div>
     </main>
