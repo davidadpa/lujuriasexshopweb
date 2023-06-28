@@ -1,5 +1,20 @@
 <?php include("../template/cabecera.php") ?>
 
+<?php 
+session_start();
+if(!isset($_SESSION['usuario'])){
+    echo '
+    <script>
+        alert("Por favor debes iniciar sesion");
+        window.location = "../index_admin.php";
+    </script>
+    ';
+    
+    session_destroy();
+    die();// don die no deja ejecutar el codigo de abajo si no tiene usuario registrado 
+}
+?>
+
 <?php
 include("../config/db.php"); 
 

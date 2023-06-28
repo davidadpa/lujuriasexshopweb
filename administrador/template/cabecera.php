@@ -25,7 +25,7 @@
       <div class="nav navbar-nav">
         <a class="nav-item nav-link active" href="#">Administrador <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/inicio.php">Inicio</a>
-        <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/seccion/productos.php">Ingreso de productos</a>
+        <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/seccion/productos.php">Creación de productos</a>
         <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/seccion/visualizacion_productos.php">Visualización de productos</a>
         <a class="nav-item nav-link" href="<?php echo $url;?>">Ver sitio web</a>
         <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/seccion/cerrar.php">Cerrar seción</a>

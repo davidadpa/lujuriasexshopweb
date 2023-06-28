@@ -1,3 +1,18 @@
+<?php 
+session_start();
+if(!isset($_SESSION['usuario'])){
+    echo '
+    <script>
+        alert("Por favor debes iniciar sesion");
+        window.location = "index_admin.php";
+    </script>
+    ';
+    
+    session_destroy();
+    die();// don die no deja ejecutar el codigo de abajo si no tiene usuario registrado 
+}
+?>
+
 
 
 <!doctype html>
@@ -29,7 +44,7 @@
       <div class="nav navbar-nav">
         <a class="nav-item nav-link active" href="#">Administrador <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/inicio.php">Inicio</a>
-        <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/seccion/productos.php">Ingreso de productos</a>
+        <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/seccion/productos.php">Creación de productos</a>
         <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/seccion/visualizacion_productos.php">Visualización de productos</a>
         <a class="nav-item nav-link" href="<?php echo $url;?>">Ver sitio web</a>
         <a class="nav-item nav-link" href="<?php echo $url;?>/administrador/seccion/cerrar.php">Cerrar seción</a>
@@ -43,7 +58,7 @@
         <div class="col-md-12">
               
           <div class="jumbotron">
-          <h1 class="display-3">Bienvenido</h1>
+          <h1 class="display-3">Bienvenido <?php echo $_SESSION['usuario']; ?></h1>
           <p class="lead">En este aplicativo podemos administrar los productos de Sexshop</p>
           <hr class="my-2">
           

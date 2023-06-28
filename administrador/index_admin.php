@@ -1,18 +1,9 @@
 
 <?php 
-session_start();
-if($_POST){
-    if(($_POST['usuario']=="administrador")&&($_POST['contrasenia']=="sexshop")){
-        $_SESSION['usuario']=="ok";
-        $_SESSION['nombreUsuario']=="administrador";
-        header('Location: inicio.php');
-    }else{
-        $mensaje="Error: EL usuario y/o contraseña son incorrectos";
-    }
-};
-
-
-
+session_start();// se utiliza para trabajar con sesiones
+if(isset($_SESSION['usuario'])){
+    header("location:inicio.php");
+  }
 ?>
 
 
@@ -58,7 +49,7 @@ if($_POST){
                         </div>
                     <?php }?>
 
-                        <form  method='POST'>
+                        <form  action="login_admin/login_admin.php" method='POST'>
                         <div class = "form-group">
                         <label>Usuario</label>
                         <input type="text" class="form-control" name="usuario" placeholder="Ingrese Usuario">
@@ -67,7 +58,7 @@ if($_POST){
                         
                         <div class="form-group">
                         <label for="exampleInputPassword1">Contraseña:</label>
-                        <input type="password" class="form-control" name="contrasenia" placeholder="Ingrese contraseña">
+                        <input type="password" class="form-control" name="contrasena" placeholder="Ingrese contraseña">
                         </div>
 
                         
