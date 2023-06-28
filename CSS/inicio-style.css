@@ -1,0 +1,29 @@
+
+.ingreso {
+    margin-top: -110px;
+    text-align: right;
+    
+  }
+  
+  .ingreso button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: -12px;
+  }
+  .ingreso :hover{
+    background-color: #dc3545;
+  }
+  
+  .empleado {
+    background-color: #ff00a6;
+  }
+  
+  .usuario {
+    background-color: #ff00dd;
+  }
+  

@@ -1,0 +1,17 @@
+footer {
+    margin-top: 920px;
+  }
+
+.pie-de-pagina {
+    background-color: rgba(255, 255, 255, 0.548);
+    width: 100%;
+
+
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
