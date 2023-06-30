@@ -14,13 +14,18 @@ body{
     
 }
 .Catalogo{
-text-align: center;
+    background-color: aqua;
+    width: 950px;
+    height: 1200px;
+    text-align: center;
+    margin-top: 600px;
 }
 .productos{
-    width: 1000px;
+    width: 900px;
     background-color: aliceblue;
-    height: 300px;
+    height: auto;
     overflow: auto;
+    
     
 }
 
@@ -32,8 +37,15 @@ text-align: center;
 
 }
 
+.producto :hover{
+    background-color: blue;
+    
+}
+
 .producto img{
     width: 200px;
+    margin: 20px;
+
 }
 
 .informacion{
