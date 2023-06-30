@@ -1,5 +1,4 @@
 body{
-
     background-image: url(../img/Fondo/fondo_cliente-4.png);
     /*background-size: cover;
     background-repeat: no-repeat;
@@ -14,28 +13,29 @@ body{
     
     
 }
-
-
-.Productos{
-    border-radius: 10px;
-    width: 100%;
-    text-align: center;
+.Catalogo{
+text-align: center;
+}
+.productos{
+    width: 1000px;
+    background-color: aliceblue;
+    height: 300px;
     
+}
+
+.producto{
+    width: 250px;
+    background-color: rgb(224, 244, 4);
+    text-align: center;
 
 }
 
-.Productos img{
-    width: 150px;
-    margin-top: 20px;
-    height: 150px;
-    margin-left: 10px;
-    border-radius: 5px;
-    transition: box-shadow 0.1s;
-    text-align: center;
-    padding: 30px;
+.producto img{
+    width: 200px;
+}
 
- }
- 
- .Productos img:hover{
-     box-shadow: 0 0 25px rgba(255, 16, 203, 0.5);
- }
+.informacion{
+    background-color: rgb(0, 133, 250);
+    width: 600px;
+    height: 100px;
+}
