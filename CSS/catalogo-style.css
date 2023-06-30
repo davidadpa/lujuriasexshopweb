@@ -14,30 +14,59 @@ body{
     
 }
 .Catalogo{
-text-align: center;
+    background-color: aqua;
+    width: 950px;
+    height: 1200px;
+    margin-top: 600px;
 }
 .productos{
-    width: 1000px;
+    width: 900px;
     background-color: aliceblue;
-    height: 300px;
+    height: auto;
+    display: flex;
     overflow: auto;
+    
     
 }
 
 .producto{
-    width: 250px;
     background-color: rgb(224, 244, 4);
+    width: 100%;
     text-align: center;
-    margin: 0 auto;
+    flex-wrap: wrap;
+    display: flex;
+
+    
+
+}
+.imagen{
+    width: 250px;
+    background-color: blueviolet;
+    border-color: black;
+    border-style: solid;
+    text-align: center;
+    transition: box-shadow 0.1s;
 
 }
 
+.imagen img:hover{
+    box-shadow: 0 0 15px rgba(255, 16, 203, 0.5);
+
+}
 .producto img{
     width: 200px;
+
+
 }
 
 .informacion{
     background-color: rgb(0, 133, 250);
-    width: 250px;
+    width: 240px;
     height: 100px;
+    margin-left: -255px;
+    padding-left: 10px;
+    text-align: center;
+    border-color: rgb(3, 3, 245);
+    border-style: solid;
+
 }
