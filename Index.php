@@ -65,15 +65,17 @@ $lista_producto=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 
                     </article>
                     
-            <div class="Catalogoinicio">
+            <div class="Catalogoinicio"><h2 class="Titulo">Nuestros Productos</h2>
                         <div class="Productos">
-                             <h2 class="Titulo">Nuestros Productos</h2>
                             <?php foreach($lista_producto as $producto){?>
                                 <img class="card-img-top" src="img/<?php echo $producto['producto_imagen'];?>" alt="">
                             <?php }?>
-                            
+                                <div class="name"><?php echo $producto['producto_nombre']; ?></div>
+                                <div class="price"><?php echo $producto['producto_precio_venta']; ?></div>
+                              </div>
+                         
                         </div>
-            </div>
+                    
                     
                             <?php include("template/pie.php"); ?>
              </div>

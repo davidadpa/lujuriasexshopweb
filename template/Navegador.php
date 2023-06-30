@@ -28,39 +28,29 @@
                 <ul> 
                     <select class="opciones">
                         <!-- Categoria hombre -->
-                        <option value="1">Hombre</option>
+                        <option value="1">Juguetes</option>
                         <option value="1">Consoladores</option>
                         <option value="1">Vibradores</option>
-                        <option value="1">Lenceria</option>
                     </select>
                     <!-- Categoria de mujer -->
                     <select>
+                        <option value="1">Genero</option>
+                        <option value="1">Hombre</option>
                         <option value="1">Mujer</option>
-                        <option value="1">Consoladores</option>
-                        <option value="1">Vibradores</option>
-                        <option value="1">Lenceria</option>
                     </select>
                     <!-- Categoria de aceites y lubricantes -->
                     <select>
-                        <option value="1">Aceites y Lubricantes</option>
-                        <option value="1">valor1</option>
-                        <option value="1">valor1</option>
-                        <option value="1">valor1</option>
+                        <option value="1">Extras</option>
+                        <option value="1">Aceites</option>
+                        <option value="1">Lubricantes</option>
                     </select>
                     <!-- Categoria de extras -->
                     <select>
-                        <option value="1">Extra</option>
-                        <option value="1">valor1</option>
-                        <option value="1">valor1</option>
-                        <option value="1">valor1</option>
+                        <option value="1">Contactos</option>
+                        <option value="1">Correo Electronico</option>
+                        <option value="1">Whatsapp</option>
                     </select>
                     <!-- Categoria de ayuda -->
-                    <select>
-                        <option value="1">Ayuda</option>
-                        <option value="1">valor1</option>
-                        <option value="1">valor1</option>
-                        <option value="1">valor1</option>
-                    </select>
                 </ul>
                 <!-- fin de de la lista de menu -->
             </div>
