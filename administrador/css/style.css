@@ -24,49 +24,107 @@ margin-bottom: -17%;
 
 
 /*formato de visualizacion de productos en el administrador*/
+.Catalogo{
+    background-color: rgba(0, 0, 0, 0.303);
+    width: 100%;
+    height: 1200px;
+    margin-top: 0px;
+}
+.productos{
+    height: auto;
+    display: flex;
+    overflow: auto;
+    
+    
+}
+
+.producto{
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+
+    
+
+}
+
+
+/*formato de visualizacion de productos en el administrador*/
 .container_v{
-width: auto;
-max-width: auto;
-height: auto;
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-overflow: hidden;
+    width: 250px;
+    max-width: auto;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
+    }
+    
+    .card_v{
+    background-color: rgb(255, 253, 253);
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 20px;
+    text-align: center;
+    transition: all 0.25s;
+    float: up;
+    
+    }
+    
+    .card_v:hover{
+        transform: translate(-15px);
+        box-shadow: 0 12px 16px #ff00bbb2;;
+    }
+    
+    .nombre{
+        font-size: 25px;
+        color: rgb(0, 0, 0);
+        font-family:  'Arial Narrow', Arial, sans-serif;
+    }
+    
+    .descri{
+        font-size: 12px;
+        margin-top: 15px;
+        color: rgb(0, 0, 0);
+        font-family:  'Arial Narrow', Arial, sans-serif;
+    }
 
-}
+    .precio{
+        font-size: 20px;
+        margin-top: 10px;
+        color: rgb(68, 255, 0);
+        font-family:  'Arial Narrow', Arial, sans-serif;
+    }
 
-.card_v{
-width: 275px;
-height: auto;
-border-radius: 8px;
-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-overflow: hidden;
-margin: 20px;
-text-align: center;
-transition: all 0.25s;
-float: left;
+    .precioco{
+        font-size: 20px;
+        margin-top: 10px;
+        color: rgb(255, 0, 0);
+        font-family:  'Arial Narrow', Arial, sans-serif;
+    }
 
-}
+    .card_v img{
+        width: 200px;
+        height: 200px;
+    }
 
-
-.card_v:hover{
-
-    transform: translate(-15px);
-    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);;
-}
-
-.card_v img{
-    width: 330px;
-    height: 220px;
-}
-
-.card_v h4{
-    font-weight: 600;
-}
-
-
-.card_v a{
-    font-weight: 500;
-    text-decoration: none;
-    color: black;
-}
+    
+    
+    .card_v a{
+        font-weight: 500;
+        text-decoration: none;
+        color: rgb(161, 7, 71);
+    }
+    
+    .ver-mas {
+        background-color: #ff00bbb2; /* Color de fondo del botón */
+        color: white; /* Color del texto del botón */
+        padding: 10px 20px; /* Ajusta el padding para cambiar el tamaño del botón */
+        border: none; /* Elimina el borde del botón */
+        border-radius: 5px; /* Añade bordes redondeados al botón */
+        cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+      }
+    
+    
