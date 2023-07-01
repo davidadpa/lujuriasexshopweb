@@ -27,20 +27,18 @@ $lista_producto=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 <br>
 <?php foreach($lista_producto as $producto){?>
 
-  <div align="center">  
-    <div class="col-md-3" >
-      <div class="card"> 
-        <img class="card-img-top" src="../../img/<?php echo $producto['producto_imagen'];?>" alt="">
-        <div class="card-body">
+  <div class="container_v">
+      <div class="card_v"> 
+        <img  src="../../img/<?php echo $producto['producto_imagen'];?>" alt="">
           <h4 class="card-title"> <?php echo $producto['producto_nombre']?></h4>
           <a name="" id="" class="btn btn-primary" href="" role="button"> ver mas </a>
-        </div>
+        
       </div>
       <br>
-    </div>
+    
 <?php }?>
+  
   </div>
-
 
 
 
