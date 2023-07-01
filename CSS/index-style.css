@@ -117,7 +117,7 @@ body{
     text-align: center;
     overflow: auto;
     backdrop-filter:blur(10px) ; /* corresponde al fondo de los menus, es como el desenfoque con respecto a la imagen trasera*/
-    background-color: rgba(243, 33, 142, 0.081);
+    background-color: rgba(0, 0, 0, 0.359);
     border-radius: 10px;
 }
 
@@ -128,7 +128,7 @@ body{
 .categorias{
     margin-top: 840px;
 
-    background-color: rgba(154, 35, 138, 0.241);
+    background-color: rgba(0, 0, 0, 0.303);
     border-radius: 100px;
     width: 1268px;
     height: auto;
