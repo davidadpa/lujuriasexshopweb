@@ -68,20 +68,66 @@ $lista_producto=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                 <div class="productos">
                     <div class="producto">
                     <?php foreach($lista_producto as $producto){?>
-                            <div class="container_v">
-                                <div class="card_v"> 
-                                  <img  src="img/<?php echo $producto['producto_imagen'];?>" alt="">
-                                  <h4 class="nombre"> <?php echo $producto['producto_nombre']?></h4>
-                                  <h5 class="descri">Descripcion:<br><?php echo $producto['producto_descripcion']; ?></h5>
-                                  <h4 class="precio">Precio:<br>$<?php echo $producto['producto_precio_venta']; ?></h4>
-                                  <button class="ver-mas">Ver más</button>
-                                  <button name="" id="" class="ver-mas" href="" role="button"> añadir al carrito </button>
+                            
+                        <section class="contenido">
+                        <div class="mostrador" id="mostrador">
+                            <div class="fila">
+                                <div class="item" onclick="cargar(this)">
+                                    <div class="contenedor-foto">
+                                        <img src="img/<?php echo $producto['producto_imagen'];?>" alt="">
+                                    </div>
+                                    <p class="descripcion"><?php echo $producto['producto_nombre']?></p>
+                                    <span class="precio">$<?php echo $producto['producto_precio_venta']; ?></span>
                                 </div>
-                            </div>
-                            <br>
-                        
-                        <?php }?>
-                        
+                                <?php }?> 
+                            </div> 
+                        </div>
+
+                        <!-- CONTENEDOR DEL ITEM SELECCIONADO -->
+        <div class="seleccion" id="seleccion">
+            <div class="cerrar" onclick="cerrar()">
+                &#x2715
+            </div>
+            <div class="info">
+                <img src="img/<?php echo $producto['producto_imagen'];?>" alt="" id="img">
+                <h2 id="modelo"><?php echo $producto['producto_nombre']?></h2>
+                <h4 id="modelo"><?php echo $producto['producto_descripcion']?></h4>
+                <span class="precio" id="precio">$<?php echo $producto['producto_precio_venta']; ?></span>
+
+                <div class="fila">
+                    <div class="size">
+                        <label for="">Cantidad</label>
+                        <select name="" id="">
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                            <option value="">4</option>
+                            <option value="">5</option>
+                            <option value="">6</option>
+                            <option value="">7</option>
+                            <option value="">8</option>
+                            <option value="">9</option>
+                            <option value="">10</option>
+                        </select>
+                    </div>
+                    <button>AGREGAR AL CARRITO</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                     </div>
 
@@ -90,6 +136,6 @@ $lista_producto=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
            <footer>
              <?php include("template/pie.php"); ?>
             </footer>
-
+            <script src="js/script_modal.js"></script>
     </body>
 </html>
