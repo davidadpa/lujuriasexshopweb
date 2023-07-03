@@ -91,7 +91,8 @@ $lista_producto=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
             <div class="info">
                 <img src="img/<?php echo $producto['producto_imagen'];?>" alt="" id="img">
                 <h2 id="modelo"><?php echo $producto['producto_nombre']?></h2>
-                <h4 id="modelo"><?php echo $producto['producto_descripcion']?></h4>
+                <p id="descripcion"><?php echo $producto['producto_descripcion']?></p>
+                
                 <span class="precio" id="precio">$<?php echo $producto['producto_precio_venta']; ?></span>
 
                 <div class="fila">
