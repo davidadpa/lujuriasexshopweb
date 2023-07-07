@@ -63,6 +63,6 @@ if(isset($_SESSION['usuario'])){
       </div>
       
     </main>
-    <script src="js/script_ingreso_cliente.js"></script>
+    <script src="js/script_ingreso_cliente.js">
   </body>
 </html>

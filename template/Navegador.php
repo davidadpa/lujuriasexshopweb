@@ -10,7 +10,7 @@
     <div class="Navegador">
        
         <div class="Logo">
-        <a href=""><img src="Img/Logo/logo nuevo final.png"></a>
+        <a href="Index.php"><img src="Img/Logo/logo nuevo final.png"></a>
             
         </div>
         <!-- Inicio del buscador -->

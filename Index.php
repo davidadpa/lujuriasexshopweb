@@ -7,6 +7,38 @@ $sentenciaSQL= $conexion->prepare("SELECT * FROM tlb_producto"); //CREA LISTA DE
 $sentenciaSQL->execute();
 $lista_producto=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC); 
 
+
+try {
+    // Establecer el modo de error de PDO a excepción
+    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Tu consulta para obtener los productos de la base de datos
+    $consulta = "SELECT * FROM tlb_producto";
+    $resultado = $conexion->query($consulta);
+
+    // Verificar si hay resultados
+    if ($resultado->rowCount() > 0) {
+        // Recorrer los productos utilizando el bucle foreach
+        while ($producto = $resultado->fetch(PDO::FETCH_ASSOC)) {
+            // Acceder a los datos del producto
+            $txtID = $producto['producto_id'];
+            $txtNombre = $producto['producto_nombre'];
+            $txtdescripcion = $producto['producto_descripcion'];
+            $txtprecio_venta = $producto['producto_precio_venta'];
+            $imagen_producto = $producto['producto_imagen'];
+            // ... Otros campos del producto
+
+        }
+    } else {
+        echo 'No se encontraron productos.';
+    }
+} catch (PDOException $e) {
+    echo "Error al conectar a la base de datos: " . $e->getMessage();
+}
+
+// Cerrar la conexión a la base de datos
+$conexion = null;
+
 ?>
 
 <!DOCTYPE html>
@@ -64,79 +96,31 @@ $lista_producto=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                         </div>
 
                     </article>
-            <div class="Catalogo">
-                <div class="productos">
-                    <div class="producto">
-                    <?php foreach($lista_producto as $producto){?>
-                            
-                        <section class="contenido">
-                        <div class="mostrador" id="mostrador">
-                            <div class="fila">
-                                <div class="item" onclick="cargar(this)">
-                                    <div class="contenedor-foto">
-                                        <img src="img/<?php echo $producto['producto_imagen'];?>" alt="">
-                                    </div>
-                                    <p class="descripcion"><?php echo $producto['producto_nombre']?></p>
-                                    <span class="precio">$<?php echo $producto['producto_precio_venta']; ?></span>
-                                </div>
-                                <?php }?> 
-                            </div> 
-                        </div>
-
-                        <!-- CONTENEDOR DEL ITEM SELECCIONADO -->
-        <div class="seleccion" id="seleccion">
-            <div class="cerrar" onclick="cerrar()">
-                &#x2715
-            </div>
-            <div class="info">
-                <img src="img/<?php echo $producto['producto_imagen'];?>" alt="" id="img">
-                <h2 id="modelo"><?php echo $producto['producto_nombre']?></h2>
-                <p id="descripcion"><?php echo $producto['producto_descripcion']?></p>
-                
-                <span class="precio" id="precio">$<?php echo $producto['producto_precio_venta']; ?></span>
-
-                <div class="fila">
-                    <div class="size">
-                        <label for="">Cantidad</label>
-                        <select name="" id="">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
-                            <option value="">5</option>
-                            <option value="">6</option>
-                            <option value="">7</option>
-                            <option value="">8</option>
-                            <option value="">9</option>
-                            <option value="">10</option>
-                        </select>
-                    </div>
-                    <button>AGREGAR AL CARRITO</button>
+                    <div class="Catalogo">
+    <div class="productos">
+        <div class="producto">
+        <?php foreach($lista_producto as $producto) {
+            $txtID = $producto['producto_id']; // Obtener el ID del producto dentro del bucle
+        ?>
+            <div class="container_v">
+                <div class="card_v"> 
+                    <a href="catalogo.php?id=<?php echo $txtID; ?>"> <!-- Enlace a la página del producto con el ID -->
+                        <img src="img/<?php echo $producto['producto_imagen']; ?>" alt="">
+                        <h4 class="nombre"><?php echo $producto['producto_nombre']; ?></h4>
+                        <h5 class="descri">Descripcion:<br><?php echo $producto['producto_descripcion']; ?></h5>
+                        <h4 class="precio">Precio:<br>$<?php echo $producto['producto_precio_venta']; ?></h4>
+                        <button class="ver-mas">Ver más</button>
+                    </a>
                 </div>
             </div>
+            <br>
+        <?php } ?>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-
-                </div>
-            </div>             
+    </div>
+</div>
            <footer>
              <?php include("template/pie.php"); ?>
             </footer>
-            <script src="js/script_modal.js"></script>
+
     </body>
 </html>
