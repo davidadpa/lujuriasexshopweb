@@ -1,0 +1,83 @@
+
+
+/* productos mas vendidos*/
+
+
+
+
+.ubicacion_mas_vendidos{
+  display: flex;
+flex-direction: unset;
+}
+.producto_mas_vendidos{
+    
+    margin: 10px;
+    padding: 50px;
+    align-items: center;
+    padding: 5px 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    max-width: 2000px;
+    
+  }
+  
+  
+  .imagen_producto_mas_vendidos{
+  width: 50px;
+  
+  
+  }
+  
+  .producto_mas_vendidos li {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    vertical-align: top;
+   
+    margin: 0 1.5%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    border: grey;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 10px;
+  }
+  
+  .producto_mas_vendidos li:hover{
+    border-color: rgb(228, 5, 180);
+    font-size: 33px;
+  }
+  
+  .producto_mas_vendidos li:hover h2 {
+    font-size: 33px;
+    
+  }
+  
+  .producto_mas_vendidos li:active{
+    border-color: green;
+  
+  }
+  
+  .producto_mas_vendidos h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(228, 5, 180);
+  }
+  
+  
+  
+  .producto-precio{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  
+
+  .imagen_mas_vendidos{
+    width: 60%;
+
+  }
+
+
+
