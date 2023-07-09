@@ -47,14 +47,14 @@ try {
         
 		    <main>
 			<div class="container-img">
-            <img class="primera" src="img/<?php echo $imagen_producto; ?>" alt="Producto" id="main-image">
-             <div class="thumbnail-images">
+            <img class="primera" src="../img/<?php echo $imagen_producto; ?>" alt="Producto" id="main-image">
+             <!-- <div class="thumbnail-images">
                  <?php foreach ($lista_producto as $producto) { ?>
-                    <img src="img/<?php echo $imagen_producto; ?>" alt="Imagen adicional" class="thumbnail" data-image="img/<?php echo $imagen_producto; ?>">  
-                      <img src="img/<?php echo $imagen_producto_2; ?>" alt="Imagen adicional" class="thumbnail" data-image="img/<?php echo $imagen_producto_2; ?>">
-                      <img src="img/<?php echo $imagen_producto_3; ?>" alt="Imagen adicional" class="thumbnail" data-image="img/<?php echo $imagen_producto_3; ?>">
+                    <img src="../img/<?php echo $imagen_producto; ?>" alt="Imagen adicional" class="thumbnail" data-image="img/<?php echo $imagen_producto; ?>">  
+                      <img src="../img/<?php echo $imagen_producto_2; ?>" alt="Imagen adicional" class="thumbnail" data-image="img/<?php echo $imagen_producto_2; ?>">
+                      <img src="../img/<?php echo $imagen_producto_3; ?>" alt="Imagen adicional" class="thumbnail" data-image="img/<?php echo $imagen_producto_3; ?>">
                   <?php } ?>
-             </div>
+             </div> -->
 
             
 			</div>
