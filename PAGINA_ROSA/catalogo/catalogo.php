@@ -1,7 +1,10 @@
 <?php include("../template/cabecera_catalogo.php"); ?>
 
 <?php
+
+
 include("../administrador/config/db.php"); 
+include("../carrito/carrito.php");  // conexion con el carrito de compras
 // Obtener el ID del producto desde $_GET['id']
 $txtID = $_GET['id'];
 $sentenciaSQL= $conexion->prepare("SELECT * FROM tlb_producto"); //CREA LISTA DE PRODUCTOS DESDE LA BASE DE DATOS
@@ -32,6 +35,7 @@ try {
          $imagen_producto = $producto['producto_imagen'];
          $imagen_producto_2 = $producto['producto_imagen_2'];
          $imagen_producto_3 = $producto['producto_imagen_3'];
+		 
          // ... Otros campos del producto
      } else {
          echo 'No se encontró el producto.';
@@ -44,6 +48,19 @@ try {
  $conexion = null;
 
 ?>
+
+
+
+					<div class="container">
+                      <br>
+
+                      <?php if($mensaje!=""){ ?>
+                      <div class="alert alert-success">
+                        <?php echo $mensaje;?>
+                        <a href="../carrito/mostrar_carrito.php" class="badge badge-success">Ver carritoCarrito (<?php echo (empty($_SESSION['CARRITO']))?0: count($_SESSION['CARRITO']);?> Referencias agregadas)</a><!-- se utiliza para que tiga la cantidad de los articulos agregados-->
+                      </div>
+                      <?php  }?>
+                    </div>
         
 		    <main>
 			<div class="container-img">
@@ -56,48 +73,48 @@ try {
                   <?php } ?>
              </div> -->
 
-            
 			</div>
+
+			
+
 			<div class="container-info-product">
 				<div class="container-price">
-					<span><?php  echo '<h2>' . $txtNombre . '</h2>';?> </span>
-				</div>
-                <span><?php  echo '<h4>Precio: $' . $txtprecio_venta . '</h4>';?> </span>
-				<div class="container-details-product">
-					
-
-				<div class="container-add-cart">
-                    
-					<div class="container-quantity">
-						<input
-							type="number"
-							placeholder="1"
-							value="1"
-							min="1"
-							class="input-quantity"
-						/>
-						<div class="btn-increment-decrement">
-							<i class="fa-solid fa-chevron-up" id="increment"></i>
-							<i class="fa-solid fa-chevron-down" id="decrement"></i>
-						</div>
-					</div>
-					<button class="btn-add-to-cart">
-						<i class="fa-solid fa-plus"></i>
-						Añadir al carrito
-					</button>
+					<span><?php  echo '<h1>' . $txtNombre . '</h1>';?> </span>
 				</div>
 
 				<div class="container-description">
 					<div class="title-description">
-						<h4>Descripción</h4>
+						<h3>Descripción</h3>
 						<i class="fa-solid fa-chevron-down"></i>
 					</div>
 					<div class="text-description">
-						<p><?php  echo '<p>' .  $txtdescripcion . '</p>';
-?>
-						</p>
+						<p><?php  echo '<h4>' .  $txtdescripcion . '</h4>';?></p>
 					</div>
 				</div>
+
+				
+                <span><?php  echo '<h4>Precio: $' . $txtprecio_venta . '</h4>';?> </span>
+				
+		
+		
+				
+
+				<div class="container-add-cart">
+                    
+					
+
+					<form action="" method="post"> <!-- se utiliza este form para agregar la informacion al carrito de compras-->
+
+                      <input type="hidden" name="id" id="id" value="<?php echo openssl_encrypt($txtID,COD,KEY);?>"> 
+                      <input type="hidden" name="nombre" id="nombre" value="<?php echo openssl_encrypt($txtNombre,COD,KEY);?>">
+                      <input type="hidden" name="precio" id="precio" value="<?php echo openssl_encrypt($txtprecio_venta,COD,KEY);?>">
+					  <input type="hidden" name="cantidad"  id="cantidad" value="<?php echo openssl_encrypt(1,COD,KEY);?>">
+                      <button class="btn-add-to-cart" name="btnAccion" value="Agregar" type="submit">AGREGAR AL CARRITO</button>
+                    </form>
+
+				</div>
+
+				
 
 				<div class="container-additional-information">
 					<div class="title-additional-information">
@@ -129,6 +146,8 @@ try {
 						<a href="#"><i class="fa-brands fa-pinterest"></i></a>
 					</div>
 				</div>
+				
+
 		</div>
 		    </main>
        
