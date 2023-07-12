@@ -6,7 +6,7 @@
       <a href="consoladores.php" class="ubicacion-texto">CONSOLADORES</a>
     </div>
 
-   <h2>CONSOLADORES</h2>
+   <h2 align="center">CONSOLADORES</h2>
    <p align="justify" class="parrafo">Es uno de los juguetes eróticos por excelencia, que tanto si estás usando ya, como si no, te recomendamos que tengas en consideración los beneficios que aporta a tu vida sexual. Sus utilidades son también variadas, y hay muchos aspectos a tener en cuenta para que elijas el que mejor se adapte a lo que estás buscando. Te los descubrimos aquí.</p>
 
     <div class="contenedor">

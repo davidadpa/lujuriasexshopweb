@@ -6,7 +6,7 @@
       <a href="vibradores.php" class="ubicacion-texto">VIBRADORES</a>
     </div>
 
-   <h2>VIBRADORES</h2>
+   <h2 align="center">VIBRADORES</h2>
    <p align="justify" class="parrafo">Los vibradores son Juguetes Sexuales que pueden ser usados por una sola persona o por parejas. Debido a su motor generan movimientos de vibración que te permitirán estimular la zona erógena deseada y te ayudarán a llegar al orgasmo más fácilmente. En nuestra colección de juguetes sexuales encontrarás los mejores vibradores y juguetes para mujeres, hombres y parejas a los mejores precios.</p>
 
     <div class="contenedor">

@@ -48,7 +48,7 @@
         </ul>
 
         <div class="ingresos">
-            <a href="../login_clientes/login_clientes.php" class="pedidos"><img src="../img\Iconos\pedidos.png"></a>
+            <a href="../carrito/mostrar_carrito.php" class="pedidos"><img src="../img\Iconos\pedidos.png"></a>
             <a href="../login_clientes/login_clientes.php" class="usuarios"><img src="../img\Iconos\usuario.png"></a>
         </div>
     </nav>

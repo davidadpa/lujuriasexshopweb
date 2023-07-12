@@ -3,6 +3,8 @@ session_start(); // se utiliza para trabajar con sesiones
 
 $conexion = mysqli_connect("localhost","root","","sexshop_bd"); // conoxion a la base de datos
 
+
+
  //Se toman los datos del forumario
 $correo = $_POST['correo'];
 $contrasena = $_POST['contrasena'];

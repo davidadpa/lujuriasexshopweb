@@ -22,7 +22,7 @@ $lista_producto=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                       </div>
                       <?php  }?>
                     </div>
-
+                        <br>
 <head>
   <link rel="stylesheet" href="CSS\style.css">
   <link rel="stylesheet" href="CSS\style-productos_masvendidos.css">
