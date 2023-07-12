@@ -168,3 +168,26 @@ main{
         position: relative;
     }
 }
+
+
+.logo{
+    width: 30%;
+    display: flex;
+   
+}
+
+.caja_logo_admin{
+
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter:blur(10px) ; /* corresponde al fondo de los menus, es como el desenfoque con respecto a la imagen trasera*/
+    background-color: rgba(243, 33, 142, 0.5);
+    cursor: pointer;
+    margin-left: 800px;
+    margin-top: -100px;
+    border-radius: 20px;
+   
+}
+

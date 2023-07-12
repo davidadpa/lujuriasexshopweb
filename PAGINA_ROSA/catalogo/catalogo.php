@@ -50,6 +50,8 @@ try {
 ?>
 
 
+<?php  $cantidad=(isset($_POST['unidades']))?$_POST['unidades']:""; ?>
+
 
 					<div class="container">
                       <br>
@@ -102,9 +104,9 @@ try {
 				<div class="container-add-cart">
                     
 					
+					
 
 					<form action="" method="post"> <!-- se utiliza este form para agregar la informacion al carrito de compras-->
-
                       <input type="hidden" name="id" id="id" value="<?php echo openssl_encrypt($txtID,COD,KEY);?>"> 
                       <input type="hidden" name="nombre" id="nombre" value="<?php echo openssl_encrypt($txtNombre,COD,KEY);?>">
                       <input type="hidden" name="precio" id="precio" value="<?php echo openssl_encrypt($txtprecio_venta,COD,KEY);?>">
