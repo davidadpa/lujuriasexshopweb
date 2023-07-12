@@ -25,13 +25,10 @@ if(isset($_POST['btnAccion'])){
                 $mensaje="OK precio correcto".$PRECIO;
             }else{ $mensaje.="upp...precio incorrecto"."</br>"; break;}
 
-           
             if(is_numeric(openssl_decrypt($_POST['cantidad'],COD, KEY))){
                 $CANTIDAD=openssl_decrypt($_POST['cantidad'],COD, KEY);
                 $mensaje="OK cantidad correcta".$CANTIDAD;
             }else{ $mensaje.="upp...cantidad incorrecta"."</br>"; break;}
-                
-          
 
 
 

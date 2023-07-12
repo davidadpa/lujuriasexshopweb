@@ -7,7 +7,14 @@
     <title>sexshop</title> <!--Titulo de la pagina-->
     <link rel="stylesheet" href="../CSS/nav-index-style.css"> <!--conexion con el archivo css-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- esta es la lista de iconos para desarrolladores de crome-->
-    <link rel="stylesheet" href="../CSS\style-productos_masvendidos.css">
+    <link rel="stylesheet" href="../CSS\style-mostra-carrito.css">
+    <link rel="stylesheet" href="../CSS\style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"><!--estas 3 lineas corresponden a google fonts, los estilos de letras-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Beau+Rivage&family=Courgette&family=Petit+Formal+Script&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </head>
 
 
@@ -39,7 +46,7 @@
           <li><a href="../tipos_productos/extras.php">Extras</a></li>
           <li><a href="../tipos_productos/contacto.php">Contacto</a></li>
         </ul>
-        
+
         <div class="ingresos">
             <a href="../login_clientes/login_clientes.php" class="pedidos"><img src="../img\Iconos\pedidos.png"></a>
             <a href="../login_clientes/login_clientes.php" class="usuarios"><img src="../img\Iconos\usuario.png"></a>
@@ -55,9 +62,3 @@
                 </ul>
               </div>
     </articule>
-
-
-
-
-    
-    </html>

@@ -7,75 +7,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sexshop</title> <!--Titulo de la pagina-->
-    <link rel="stylesheet" href="CSS/style.css"> <!--conexion con el archivo css-->
-    <link rel="stylesheet" href="CSS/style-productos_masvendidos.css"> <!--conexion con el archivo css-->
-    <link rel="shortcut icon" href="img/LOGO.png" type="image/x-icon"> <!--Logo de la pagina de titulo-->
+    <link rel="stylesheet" href="CSS/nav-index-style.css"> <!--conexion con el archivo css-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- esta es la lista de iconos para desarrolladores de crome-->
-    <link rel="preconnect" href="https://fonts.googleapis.com"><!--estas 3 lineas corresponden a google fonts, los estilos de letras-->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Beau+Rivage&family=Courgette&family=Petit+Formal+Script&family=Pinyon+Script&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </head>
 
 
   <body>
-    <div class="barra-titulo">
-      <div class="whatsapp">
-        <img src="img/whatsapp.png" alt="icono whatsapp" class="whatsapp-img">
-        <p>3168245409</p><p>contacto@lujuriasexshop.com.co</p>
-        <div class="redes-sociales">
-          <img src="img/icon_facebook.png" alt="facebook" class="redes-sociales-img"  >
-          <img src="img/twiter.png" alt="twiter" class="redes-sociales-img" >
-          <img src="img/logo-instagram-rosa.jpg" alt="instagram" class="redes-sociales-img" >
-          <img src="img/youtube.png" alt="youtube" class="redes-sociales-img" >
-        </div> 
-      </div>  
-      
-      <div class="logo-titulo">
-        <a href="./index.php">
-        <img src="img/LOGO.png" alt="logo lujuriasexshop">
-        </a>
-        <h1>Lujuria sexshop</h1>
-        <br>
-        <div class="usuario">
-          <br>
-                  
-  
-</div>
+    <nav>
 
-
-
-          <a href="login_clientes/login_clientes.php">
-          <img src="img/usuario.png" alt="usuario" class="img-usuario">
-          </a>
-          
-          
+        <div class="Logo">
+           <a href="Index.php"><img src="img\logo\logo oficial.png"></a> 
         </div>
-      </div>
-    </div>
 
-    <div class="buscador">
-      <input type="text" placeholder="Busqueda">
-      <div class="acciones">
-        <button><span class="material-icons">search</span></button> <!-- esta es la estructura qye se utiliza para utilizar los iconos-->
-        <a href="carrito/mostrar_carrito.php" class="espacio1"><button><span class="material-icons">shopping_cart</span></button></a>
-      </div>
-  
-    </div>
+
+        <div class="buscador">
+            <input type="text" placeholder="Busqueda">
+            <div class="acciones">
+                <button><span class="material-icons">search</span></button> <!-- esta es la estructura qye se utiliza para utilizar los iconos-->
+                <a href="carrito/mostrar_carrito.php" class="espacio1"><button><span class="material-icons">shopping_cart</span></button></a>
+            </div>
+        </div>
+        
+
+        <ul class="menu"> <!-- se crea el menu principal sin especificar ruta-->
+          <li><a href="tipos_productos/vibradores.php">Vibradores</a></li>
+          <li><a href="tipos_productos/consoladores.php">Consoladores</a></li>
+          <li><a href="tipos_productos/jugetes_anales.php">Jugetes anales</a></li>
+          <li><a href="tipos_productos/hombres.php">Hombres</a></li>
+          <li><a href="tipos_productos/lubricantes.php">lubricantes</a></li>
+          <li><a href="tipos_productos/lenceria.php">Lenceria</a></li>
+          <li><a href="tipos_productos/sado.php">Sado y Fetiche</a></li>
+          <li><a href="tipos_productos/extras.php">Extras</a></li>
+          <li><a href="tipos_productos/contacto.php">Contacto</a></li>
+        </ul>
+
+        <div class="ingresos">
+            <a href="login_clientes/login_clientes.php" class="pedidos"><img src="img\Iconos\pedidos.png"></a>
+            <a href="login_clientes/login_clientes.php" class="usuarios"><img src="img\Iconos\usuario.png"></a>
+        </div>
+    </nav>
+    <articule>
+         <div class="menu-iconos">
+                <ul>
+                    <a href=""><img  src="img/iconos/recoleccion-discreta.png" alt=""></a>
+                    <a href=""><img  src="Img/Iconos/entrega-rapida.png"></a>
+                    <a href=""><img  src="Img/Iconos/entrega-urgente.png"></a>
+                    <a href=""><img  src="Img/Iconos/metodo-de-pago.png"></a>
+                </ul>
+              </div>
+
+              <div class="Promociones">
+                <ul>
+                    <a href=""><img src="Img/Pomociones/bola china.jpg"></a>
+                    <a href=""><img src="Img/Pomociones/CEq-aceites-para-masajes-1.jpg"></a>
+                    <a href=""><img src="img/Pomociones/copa mestrual.jpg"></a>
+                    <a href=""><img src="Img/Pomociones/slider vibradores.jpg"></a>
+                    <a href=""><img src="img/Pomociones/cosoladores varios 3.jpg"></a>
+                    <a href=""><img src="img/Pomociones/cosoladores varios.jpg"></a>
+                    <a href=""><img src="img/Pomociones/jugetes anales -1.jpg"></a>
+                    <a href=""><img src="Img/Pomociones/jugetes anales -2.jpg" alt=""></a>
+                    <a href=""><img src="Img/Pomociones/jugetes anales -3.jpg"></a>
+                    <a href=""><img src="Img/Pomociones/slider vibradores.jpg"></a>
+                    <a href=""><img src="Img/Pomociones/bola china.jpg"></a>
+                    <a href=""><img src="Img/Pomociones/CEq-aceites-para-masajes-1.jpg"></a>
+                </ul>
+             </div>
+    </articule>
+
+
+
+
     
-    <br>
-    <ul class="menu"> <!-- se crea el menu principal sin especificar ruta-->
-      <li><a href="tipos_productos/vibradores.php">Vibradores</a></li>
-      <li><a href="tipos_productos/consoladores.php">Consoladores</a></li>
-      <li><a href="tipos_productos/jugetes_anales.php">Jugetes anales</a></li>
-      <li><a href="tipos_productos/hombres.php">Hombres</a></li>
-      <li><a href="tipos_productos/lubricantes.php">lubricantes</a></li>
-      <li><a href="tipos_productos/lenceria.php">Lenceria</a></li>
-      <li><a href="tipos_productos/sado.php">Sado y Fetiche</a></li>
-      <li><a href="tipos_productos/extras.php">Extras</a></li>
-      <li><a href="tipos_productos/contacto.php">Contacto</a></li>
-    </ul>
-    <br>
-
-
+    </html>

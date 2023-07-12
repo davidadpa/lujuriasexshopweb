@@ -20,13 +20,18 @@ if(isset($_SESSION['usuario'])){
   </head>
   <body>
     <main>
+    <div class="imagen-logo">
+           <a href="../Index.php"><img src="../img\logo\logo oficial.png"></a> 
+        </div>
+    <div class="caja">
+      <div class="ingreso">
 
-      <div class="caja_logo_admin">
-        
-        <a href="../administrador/index_admin.php"><img src="../img/logo/logo_nuevo_final.png" class="logo" alt=""></a>
-       
+          <a href="../administrador\index_admin.php">
+            <button class="empleado">Empleados</button>
+          </a>
       </div>
-      <br>
+    </div>
+
       <div class="contenedor__todo">
         
         <div class="caja__trasera">

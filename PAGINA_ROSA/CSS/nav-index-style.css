@@ -1,0 +1,138 @@
+
+
+/*estilo de logo*/
+.Logo{
+
+    display: block;
+    
+}
+.Logo img{
+    width: 250px;
+    height: auto;
+}
+
+/*estilo de iconos del buscador*/
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+  }
+  
+  .buscador{
+    border: solid 1px rgb(228, 5, 180); /*es un bodege delgado*/
+    border-radius:10px ;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1px 5px;
+    margin-left: 290px;
+    width: 800px;
+    margin-top: -90px;
+  }
+  
+  .buscador:focus-within{
+  
+    border: solid 1px rgb(228, 5, 180); /*se utiliza el focus para que al momento de dar click en el bucador le salga un borde*/
+    box-shadow:0px 2px 5px rgb(228, 5, 180) ;/*dar sonbra al div del buscador*/
+  }
+  
+  .buscador input{
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 18px;
+    color: rgb(228, 5, 180);
+    flex: auto; /*para que quede a la derecha los iconos */
+  
+  }
+  
+  .buscador input::placeholder { color:rgb(228, 5, 180); }
+  
+  .buscador .acciones{
+    display: flex;
+    gap: 10px;
+  }
+  
+  .buscador .acciones button{
+    border: none; 
+    outline: none;
+    background: none;
+    cursor: pointer;
+    color: fuchsia;
+  }
+  
+  .buscador .acciones button:hover{
+    color: rgb(99, 2, 78);
+  }
+  
+  .menu{
+    font-family: sans-serif;
+    list-style: none;
+    padding: 0;
+    width: 90%;
+    max-width: 1000px;
+    margin-left: 250px;
+
+  }  
+  
+  .menu li a {
+    text-decoration: none;
+    color: rgb(228, 5, 180);
+    padding: 5px;
+   display: block;
+    font-size: 18px;
+    float: left;
+  } 
+    
+  .menu li {
+    display: inline-block; /*sirve para que el menu se vea tipo colimna*/
+    text-align: center;
+    
+  } 
+    
+  .menu li a:hover {
+    background: rgb(99, 2, 78);/*sirve para que al momento de pasar el cursor por el menu, cambie de color*/
+    border-radius: 15px;
+  } 
+    
+
+.ingresos{
+    display: block;
+    margin-top: -130px;
+    text-align: right;
+}
+.ingresos img{
+    padding-left: 30px;
+}
+
+.usuarios img{
+    width: 60px;
+    margin-top: 10px;
+}
+
+.pedidos img{
+    width: 60px;
+
+}
+
+
+
