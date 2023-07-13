@@ -1,12 +1,12 @@
 <?php
 
-session_start();
+session_start(); //para guardar informacion en la session
 
 $mensaje="";
 
 if(isset($_POST['btnAccion'])){
 
-     switch($_POST['btnAccion']){
+     switch($_POST['btnAccion']){ //trae la informacion del boton agregar carrito que tiene el nombre de variable btnAccion
         case 'Agregar':
 
             if(is_numeric(openssl_decrypt($_POST['id'],COD, KEY))){

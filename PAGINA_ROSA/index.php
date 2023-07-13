@@ -3,8 +3,8 @@
 
 <?php
 require("config/config.php");
-include("administrador/config/db.php"); 
-include("carrito/carrito.php"); 
+include("administrador/config/db.php"); //conexion a la base de datos
+include("carrito/carrito.php"); //conexion al archivo de funcionamiento del
 
 $sentenciaSQL= $conexion->prepare("SELECT * FROM tlb_producto"); //CREA LISTA DE PRODUCTOS DESDE LA BASE DE DATOS
 $sentenciaSQL->execute();
@@ -42,7 +42,7 @@ $lista_producto=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
         ?> 
 
 
-            <div class="container_v">
+            <div class="container_v"> <!-- caja de los productos -->
                 <div class="card_v"> 
               <a href="catalogo/catalogo.php?id=<?php echo $txtID; ?>">  
               <img 
@@ -62,7 +62,7 @@ $lista_producto=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                   <h5 class="precio">$<?php echo $producto['producto_precio_venta']; ?></h5>
                   <p class="descri"><?php echo $producto['producto_descripcion']; ?></p>
                   
-                  <form action="" method="post">
+                  <form action="" method="post"><!-- informacion para agregar productos al carrito--> 
 
                       <input type="hidden" name="id" id="id" value="<?php echo openssl_encrypt($producto['producto_id'],COD,KEY);?>"> 
                       <input type="hidden" name="nombre" id="nombre" value="<?php echo openssl_encrypt($producto['producto_nombre'],COD,KEY);?>">
