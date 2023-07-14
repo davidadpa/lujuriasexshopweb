@@ -17,7 +17,7 @@ $lista_producto=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 
                       <?php if($mensaje!=""){ ?>
                       <div class="alert alert-success">
-                        <?php echo $mensaje;?>
+                        <script>alert(" <?php echo $mensaje;?>");</script>
                         <a href="carrito/mostrar_carrito.php" class="badge badge-success">Ver carritoCarrito (<?php echo (empty($_SESSION['CARRITO']))?0: count($_SESSION['CARRITO']);?> Referencias agregadas)</a><!-- se utiliza para que tiga la cantidad de los articulos agregados-->
                       </div>
                       <?php  }?>
