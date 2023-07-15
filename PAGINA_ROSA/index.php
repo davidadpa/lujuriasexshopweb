@@ -6,7 +6,7 @@ require("config/config.php");
 include("administrador/config/db.php"); //conexion a la base de datos
 include("carrito/carrito.php"); //conexion al archivo de funcionamiento del
 
-$sentenciaSQL= $conexion->prepare("SELECT * FROM tlb_producto"); //CREA LISTA DE PRODUCTOS DESDE LA BASE DE DATOS
+$sentenciaSQL= $conexion->prepare("SELECT * FROM tlb_producto WHERE producto_oferta = 'lo_mas_vendido'"); //CREA LISTA DE PRODUCTOS DESDE LA BASE DE DATOS
 $sentenciaSQL->execute();
 $lista_producto=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC); 
 
@@ -30,7 +30,7 @@ $lista_producto=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 </head>
     <main>
       <div class="Titulo">
-        <h2>Nuestros Productos</h2>
+        <h2>Los mas vendidos</h2>
       </div>
       <div class="productos">
         <div class="producto">
