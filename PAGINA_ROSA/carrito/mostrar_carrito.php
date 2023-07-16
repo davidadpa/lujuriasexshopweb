@@ -1,6 +1,10 @@
 
 <?php include("../template/cabecera_carrito.php"); ?> <!--corresponde a todo el encabezado de las paginas web desde el logo hasta los menus-->
 
+
+
+
+
 <?php
 require("../config/config.php");
 include("../administrador/config/db.php"); 
@@ -48,7 +52,27 @@ $lista_producto=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
           <td colspan="3" align="right">Total</td>
           <td align="right"><h3><?php echo number_format($total,2);?></h3></td>
           <td width="20%"class="text-center"></td>
-          
+        </tr>
+
+        <tr>
+
+          <td colspan="5">
+
+            <form action="login_usuario_compra.php" method="post">
+              <div class="alert alert-success" role="alert">
+                <div class="form-group">
+                  <label for="my-input">Correo electronico</label>
+                  <input id="correo" name="correo" class="form-control" type="email" placeholder="Por favor escribe tu correo" required>
+
+                  <label for="my-input">Contraseña</label>
+                  <input id="contrasena" name="contrasena" class="form-control" type="contrasena" placeholder="Por favor escribe tu contraseña" required>
+
+                </div>
+                <small id="emailHelp" class="form-text text-muted">para comprar tienes que tener una cuenta activa o <a href="../login_clientes/login_clientes.php">crear una</a></small>
+              </div>
+              <button class="btn btn-primary btn-lg btn-block" type="submit" value="proceder" name="btnAccion">Proceder a pagar >></button>
+            </form>
+          </td>
         </tr>
 
 
