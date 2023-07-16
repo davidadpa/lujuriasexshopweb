@@ -40,13 +40,62 @@ include("../template/cabecera_carrito.php");
 <?php
 if($_POST){
 $total=0;
+$SID=session_id(); //devuelve una clave de la session carrito
+$correo=$_POST['correo'];
 foreach($_SESSION['CARRITO'] as $indice=>$producto){
     $total=$total+($producto['precio']*$producto['cantidad']);
 
      }
-     echo "<h3>".$total."<h3>";
+
+     $sentencia=$conexion->prepare("INSERT INTO `tlb_ventas` 
+     (`venta_id`, `venta_clavetransaccion`, `venta_paypaldatos`, `venta_fecha`, `venta_correo`, `venta_total`, `venta_status`) 
+     VALUES (NULL, :venta_clavetransaccion, '', NOW(), :venta_correo, :venta_total, 'pendiente');");
+
+
+     $sentencia->bindParam(":venta_clavetransaccion", $SID);
+     $sentencia->bindParam(":venta_correo", $correo);
+     $sentencia->bindParam(":venta_total", $total);
+     $sentencia->execute();
+     $idventa=$conexion->lastInsertId();
+
+
+     foreach($_SESSION['CARRITO'] as $indice=>$producto){
+     
+    $sentencia=$conexion->prepare("INSERT INTO 
+    `tlb_detalle_ventas` (`detalle_venta_id`, `detalle_idventa`, `detalle_id_producto`, `detalle_precio_unitario`, `detalle_cantidad`, `detalle_descargado`) 
+    VALUES (NULL, :detalle_idventa, :detalle_id_producto, :detalle_precio_unitario, :detalle_cantidad, '0');");
+
+    $sentencia->bindParam("detalle_idventa", $idventa);
+    $sentencia->bindParam("detalle_id_producto",$producto['id'] ); // este id viene del carrito.php
+    $sentencia->bindParam(":detalle_precio_unitario", $producto['precio']);
+    $sentencia->bindParam(":detalle_cantidad", $producto['cantidad']);
+    $sentencia->execute();
+
+
+    }
+
     }
 ?>
+
+
+
+<div class="jumbotron text-center">
+    <h1 class="display-4">¡Paso Final!</h1>
+    <hr class="my-4">
+    <p class="lead">Estas a punto de pagar con paypal la cantidad de: 
+        <h4>$<?php echo number_format($total,2);?></h4>
+    </p>
+    <p>Los productos se enviaran una vez se procese el pago<br>
+    <strong>(Para aclaraciones escribir a: jjsanchez_castano@hotmail.com)</strong>
+    </p>
+</div>
+
+
+
+
+<!--Botones de pago -->
+
+
 
 
 
