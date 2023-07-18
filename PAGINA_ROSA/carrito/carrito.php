@@ -25,10 +25,15 @@ if(isset($_POST['btnAccion'])){
                 $mensaje="OK precio correcto".$PRECIO;
             }else{ $mensaje.="upp...precio incorrecto"."</br>"; break;}
 
-            if(is_numeric(openssl_decrypt($_POST['cantidad'],COD, KEY))){
-                $CANTIDAD=openssl_decrypt($_POST['cantidad'],COD, KEY);
-                $mensaje="OK cantidad correcta".$CANTIDAD;
-            }else{ $mensaje.="upp...cantidad incorrecta"."</br>"; break;}
+            if (is_numeric($_POST['cantidad'])){
+                // Agregar el producto al carrito
+                $CANTIDAD = ($_POST['cantidad']);
+                $mensaje = "OK cantidad correcta".$CANTIDAD;
+            } else {
+                // Mostrar un mensaje de error
+                $mensaje = "upp...cantidad incorrecta"."</br>";
+                break;
+            }
 
 
 
@@ -64,6 +69,7 @@ if(isset($_POST['btnAccion'])){
                 );
                 $_SESSION['CARRITO'][$NumeroProductos]=$producto;
                 $mensaje="producto agregado al carrito";
+                
 
             }
             }
@@ -89,6 +95,11 @@ if(isset($_POST['btnAccion'])){
                 }
 
             }else{ $mensaje.="upp...ID incorrecto".$ID."</br>"; }
+
+            
+
+
+
 
         break;
 
