@@ -77,26 +77,85 @@ foreach($_SESSION['CARRITO'] as $indice=>$producto){
     }
 ?>
 
-
+ <!-- de aqui en adelante esta todo el codigo de paypal -->
+ <script src="https://www.paypalobjects.com/api/checkout.js"></script>  <!--conexion con el archivo js de paypal -->
 
 <div class="jumbotron text-center">
     <h1 class="display-4">¡Paso Final!</h1>
     <hr class="my-4">
     <p class="lead">Estas a punto de pagar con paypal la cantidad de: 
         <h4>$<?php echo number_format($total,2);?></h4>
+        <div id="paypal-button-container"></div>
     </p>
     <p>Los productos se enviaran una vez se procese el pago<br>
-    <strong>(Para aclaraciones escribir a: jjsanchez_castano@hotmail.com)</strong>
+    <strong>(Para aclaraciones escribir a: lujuriasexshop@hotmail.com)</strong>
     </p>
+    <br>
+    <p>Nota: el usiario de paypal es sb-tlsfe26820375@personal.example.com</p>
+    <p>Nota: la contraseña de paypal es sexshop123</p>
 </div>
 
 
+<script>
 
+    // Render the PayPal button
 
-<!--Botones de pago -->
+    paypal.Button.render({
 
+        // Set your environment
 
+        env: 'sandbox', // sandbox | production
 
+        // Specify the style of the button
+
+        style: {
+            label: 'buynow',
+            fundingicons: true, // optional
+            branding: true, // optional
+            size:  'small', // small | medium | large | responsive
+            shape: 'rect',   // pill | rect
+            color: 'gold'   // gold | blue | silver | black
+        },
+
+        // PayPal Client IDs - replace with your own
+        // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+
+        client: {
+            sandbox:    'AbX44e-8ZWrGeygDCEJoEsL8FzFeXJmaeP7hqrSoPHh7nYKqWQN2IwdwPfNNZsPb16SyZnBC0xdvbAWm',
+            production: '<insert production client id>'
+        },
+
+        // Show the buyer a 'Pay Now' button in the checkout flow
+        commit: true,
+
+        // Wait for the PayPal button to be clicked
+
+        payment: function(data, actions) {
+            return actions.payment.create({
+                transactions: [
+                    {
+                        amount: { total: '<?php echo number_format($total,2);?>', currency: 'USD' },
+                        description:"Compra de productos a Lujuria Sexshop:$<?php echo number_format($total,2);?>",
+                        custom:"<?php echo $SID;?>#<?php echo openssl_encrypt($idventa,COD,KEY);?>" //retorno de informacion de paypal para confirmar la compra
+                    }
+                ]
+            });
+        },
+
+        // Wait for the payment to be authorized by the customer
+
+        onAuthorize: function(data, actions) {
+            return actions.payment.execute().then(function() {
+                console.log(data);
+                window.location="verificador.php?paymentToken="+data.paymentToken+"&paymentID="+data.paymentID;
+               // window.alert('Payment Complete!');
+            });
+        }
+
+    }, '#paypal-button-container');
+
+</script>
+    
 
 
 <?php include("../template/pie_carrito.php"); ?> <!--Corresponde al pie de pagina-->
