@@ -49,7 +49,7 @@ foreach($_SESSION['CARRITO'] as $indice=>$producto){
 
      $sentencia=$conexion->prepare("INSERT INTO `tlb_ventas` 
      (`venta_id`, `venta_clavetransaccion`, `venta_paypaldatos`, `venta_fecha`, `venta_correo`, `venta_total`, `venta_status`) 
-     VALUES (NULL, :venta_clavetransaccion, '', NOW(), :venta_correo, :venta_total, 'pendiente');");
+     VALUES (NULL, :venta_clavetransaccion, '', NOW(), :venta_correo, :venta_total, 'pago');");
 
 
      $sentencia->bindParam(":venta_clavetransaccion", $SID);
