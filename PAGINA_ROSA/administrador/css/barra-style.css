@@ -1,0 +1,55 @@
+
+.sidebar {
+  width: 230px;
+  height: 100vh;
+  background-color: #283747;
+  color: #fff;
+  margin-top: -90px;
+  position: absolute;
+}
+
+.logo {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.logo img {
+  width: 200px;
+}
+
+.logo h1 {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+
+.menu-barra {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.menu-barra li {
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.menu-barra li:hover {
+  background-color: #1A2533;
+}
+
+.menu-barra li a {
+  display: block; /* Hace que los enlaces ocupen todo el ancho del <li> */
+  color: #fff;
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+}
+
+.menu-barra li a:hover {
+  text-decoration: none; /* Elimina el subrayado al poner el cursor sobre los enlaces */
+}
+
+.menu-barra a {
+  color: #fff;
+  text-decoration: none;
+}
+

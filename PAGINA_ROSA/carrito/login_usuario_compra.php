@@ -153,7 +153,7 @@ foreach($_SESSION['CARRITO'] as $indice=>$producto){
         }
 
     }, '#paypal-button-container');
-
+    
 </script>
     
 
