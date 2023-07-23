@@ -7,6 +7,12 @@ include("../template/cabecera_carrito.php");
 
 ?>
 <?php
+// Después de almacenar los datos de la compra y obtener el ID de la venta
+$id_venta = 1; // Por ejemplo, obtienes el ID de la venta después de realizarla
+
+// Redireccionar al archivo generar_factura.php con el ID de la venta como parámetro
+header("Location: ../Factura/factura.php?id_venta=" . $id_venta);
+exit();
 
 // Obtener el ID de la venta actual
 $sentencia_venta_actual = $conexion->prepare("SELECT MAX(venta_id) AS venta_actual FROM tlb_ventas");
@@ -49,8 +55,11 @@ foreach ($detalles_venta as $detalle) {
     <hr class="my-4">
     <p class="lead">Los productos se enviaran a la direccion especificada 
      <br>   
+     <?php
+
      
     
+     ?>
     <strong>(Para aclaraciones escribir a: lujuriasexshop@hotmail.com)</strong>
     </p>
     <br>
