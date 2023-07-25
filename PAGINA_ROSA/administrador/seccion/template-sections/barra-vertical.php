@@ -20,9 +20,10 @@
     <ul class="menu-barra">
       <li><a href="../../administrador\seccion\agregar_producto.php">Agregar un Producto</a></li>
       <li><a href="../../administrador\seccion\lista_productos.php">Lista de Productos</a></li>
-      <li><a href="#">Lista de administradores</a></li>
-      <li><a href="#">Lista de clientes</a></li>
+      <li><a href="../../administrador\seccion\lista-administradores.php">Lista de administradores</a></li>
+      <li><a href="../../administrador\seccion\lista-usarios.php">Lista de clientes</a></li>
       <li><a href="#">Configuración</a></li>
     </ul>
   </div>
+</body>
   

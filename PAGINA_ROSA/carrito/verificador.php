@@ -6,6 +6,7 @@ include("../template/cabecera_carrito.php");
 
 
 ?>
+
 <?php
 
 // Obtener el ID de la venta actual
@@ -40,8 +41,10 @@ foreach ($detalles_venta as $detalle) {
     $sentencia_actualizar_stock->bindParam(":id_producto", $id_producto);
     $sentencia_actualizar_stock->execute();
 }
-?>
 
+
+
+?>
 
 
 <div class="jumbotron text-center">

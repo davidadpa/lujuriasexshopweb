@@ -1,0 +1,52 @@
+.contenido_tabla {
+    width: 100%;
+    height: 550px;
+    display: flex;
+    overflow: auto;
+    top: 0; /* Ajustar la posición en la parte superior */
+  }
+
+  .contenido_tabla th{
+    width: 200px;
+    overflow: hidden; /* Recorta el contenido que excede el ancho del td */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos (...) para indicar que hay contenido oculto */
+  }
+
+  .tabla{
+    width: 100%;
+    margin-left: 230px;
+    text-align: center;
+  }
+  /* Resto de los estilos de la tabla y celdas del cuerpo */
+  .table-custom {
+    border-collapse: collapse;
+    background-color: rgba(65, 65, 76, 0.307);
+   
+  }
+
+  .table-custom th,
+  .table-custom td {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+
+  /* Estilo para los encabezados de columna */
+  .table-custom thead tr {
+    background-color: #333;
+    color: #fff;
+    text-align: center; /* Centrar los encabezados */
+  }
+
+  .table-custom th {
+    margin: 5px; /* Añadir margen a los encabezados */
+  }
+
+  /* Estilo para las filas impares (efecto zebra) */
+  .table-custom tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+  }
+
+.contenido img{
+    width: 80px;
+    height: 80px;
+}

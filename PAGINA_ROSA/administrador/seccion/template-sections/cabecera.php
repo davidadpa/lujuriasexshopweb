@@ -23,9 +23,9 @@
     <div class="navegador"> <!-- se crea el menu principal sin especificar ruta-->
         <div class="menu navbar-expand" >
           <div class="nav navbar-nav">
-          <a class="nav-item nav-link" href="<?php echo $url;?>">Ver inventario</a>
+          <a class="nav-item nav-link" href="../../administrador\seccion\inventario.php">Ver inventario</a>
             <a class="nav-item nav-link" href="<?php echo $url;?>">Ver sitio web</a>
-            <a class="nav-item nav-link" href="<?php echo $url;?>">Ver catalogo</a>
+            <a class="nav-item nav-link" href="../../administrador\seccion\visualizacion_productos.php">Ver catalogo</a>
           </div>
 
         </div>
