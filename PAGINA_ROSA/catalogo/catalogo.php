@@ -1,68 +1,71 @@
-<?php include("../template/cabecera_catalogo.php"); ?>
-
 <?php
+// Include the header file
+include("../template/cabecera_catalogo.php");
 
+// Check if the 'id' parameter is set in $_GET
+if (isset($_GET['id'])) {
+	// Include the database configuration file and the cart functionalities
+	include("../administrador/config/db.php");
+	include("../carrito/carrito.php");
 
-include("../administrador/config/db.php");
-include("../carrito/carrito.php"); // conexion con el carrito de compras
-// Obtener el ID del producto desde $_GET['id']
-$txtID = $_GET['id'];
-$sentenciaSQL = $conexion->prepare("SELECT * FROM tlb_producto"); //CREA LISTA DE PRODUCTOS DESDE LA BASE DE DATOS
-$sentenciaSQL->execute();
-$lista_producto = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
+	try {
+		// Set PDO error mode to exception
+		$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+		// Get the product ID from $_GET['id']
+		$txtID = $_GET['id'];
 
-try {
+		// Prepare and execute the SQL query to fetch the specific product from the database
+		$consulta = "SELECT * FROM tlb_producto WHERE producto_id = :id";
+		$sentencia = $conexion->prepare($consulta);
+		$sentencia->bindParam(':id', $txtID);
+		$sentencia->execute();
 
-	// Establecer el modo de error de PDO a excepción
-	$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		// Check if the product is found
+		if ($sentencia->rowCount() > 0) {
+			// Fetch the product data
+			$producto = $sentencia->fetch(PDO::FETCH_ASSOC);
 
-	// Tu consulta para obtener el producto específico de la base de datos
-	$consulta = "SELECT * FROM tlb_producto WHERE producto_id = :id";
-	$sentencia = $conexion->prepare($consulta);
-	$sentencia->bindParam(':id', $txtID);
-	$sentencia->execute();
+			// Extract product data
+			$txtNombre = $producto['producto_nombre'];
+			$txtdescripcion = $producto['producto_descripcion'];
+			$txtprecio_venta = $producto['producto_precio_venta'];
+			$imagen_producto = $producto['producto_imagen'];
+			$imagen_producto_2 = $producto['producto_imagen_2'];
+			$imagen_producto_3 = $producto['producto_imagen_3'];
 
-	// Verificar si se encontró el producto
-	if ($sentencia->rowCount() > 0) {
-		// Obtener los datos del producto
-		$producto = $sentencia->fetch(PDO::FETCH_ASSOC);
+			// ... Other fields of the product
 
-		// Acceder a los datos del producto
-		$txtNombre = $producto['producto_nombre'];
-		$txtdescripcion = $producto['producto_descripcion'];
-		$txtprecio_venta = $producto['producto_precio_venta'];
-		$imagen_producto = $producto['producto_imagen'];
-		$imagen_producto_2 = $producto['producto_imagen_2'];
-		$imagen_producto_3 = $producto['producto_imagen_3'];
-
-		// ... Otros campos del producto
-	} else {
-		echo 'No se encontró el producto.';
+		} else {
+			echo 'No se encontró el producto.';
+			exit; // Terminate the script if the product is not found
+		}
+	} catch (PDOException $e) {
+		echo "Error al conectar a la base de datos: " . $e->getMessage();
+		exit; // Terminate the script if there's a database error
 	}
-} catch (PDOException $e) {
-	echo "Error al conectar a la base de datos: " . $e->getMessage();
+
+	// Close the database connection
+	$conexion = null;
+} else {
+	echo 'No se proporcionó un ID de producto válido.';
+	exit; // Terminate the script if 'id' parameter is not provided in $_GET
 }
-
-// Cerrar la conexión a la base de datos
-$conexion = null;
-
 ?>
 
 <head>
-	<link rel="stylesheet" href="../CSS\cata-style.css">
+	<link rel="stylesheet" href="../CSS/cata-style.css">
 </head>
-<div class="caja">
 
+<div class="caja">
 	<div class="container">
 		<br>
-
-		<?php if ($mensaje != "") { ?>
+		<?php if (!empty($mensaje)) { ?>
 			<div class="alert alert-success">
 				<?php echo $mensaje; ?>
-				<a href="../carrito/mostrar_carrito.php" class="badge badge-success">Ver carritoCarrito (
-					<?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> Referencias agregadas)
-				</a><!-- se utiliza para que tiga la cantidad de los articulos agregados-->
+				<a href="../carrito/mostrar_carrito.php" class="badge badge-success">Ver carrito (
+					<?php echo (!empty($_SESSION['CARRITO'])) ? count($_SESSION['CARRITO']) : 0; ?> Referencias agregadas)
+				</a>
 			</div>
 		<?php } ?>
 	</div>
@@ -70,22 +73,14 @@ $conexion = null;
 	<main>
 		<div class="container-img">
 			<img class="primera" src="../img/<?php echo $imagen_producto; ?>" alt="Producto" id="main-image">
-			<!-- <div class="thumbnail-images">
-				 <?php foreach ($lista_producto as $producto) { ?>
-					<img src="../img/<?php echo $imagen_producto; ?>" alt="Imagen adicional" class="thumbnail" data-image="img/<?php echo $imagen_producto; ?>">  
-					  <img src="../img/<?php echo $imagen_producto_2; ?>" alt="Imagen adicional" class="thumbnail" data-image="img/<?php echo $imagen_producto_2; ?>">
-					  <img src="../img/<?php echo $imagen_producto_3; ?>" alt="Imagen adicional" class="thumbnail" data-image="img/<?php echo $imagen_producto_3; ?>">
-				  <?php } ?>
-			 </div> -->
-
 		</div>
-
-
 
 		<div class="container-info-product">
 			<div class="container-price">
 				<span>
-					<?php echo '<h1>' . $txtNombre . '</h1>'; ?>
+					<h1>
+						<?php echo $txtNombre; ?>
+					</h1>
 				</span>
 			</div>
 
@@ -96,27 +91,26 @@ $conexion = null;
 				</div>
 				<div class="text-description">
 					<p>
-						<?php echo '<h4>' . $txtdescripcion . '</h4>'; ?>
+					<h4>
+						<?php echo $txtdescripcion; ?>
+					</h4>
 					</p>
 				</div>
 			</div>
 
-
 			<span>
-				<?php echo '<h4>Precio: $' . $txtprecio_venta . '</h4>'; ?>
+				<h4>Precio: $
+					<?php echo $txtprecio_venta; ?>
+				</h4>
+				<br>
+				 <p class="descri"> Cantidad disponible:
+                <?php echo $producto['producto_cantidad']; ?>
+              </p>
 			</span>
 
-
-
-
-
 			<div class="container-add-cart">
-
-
-
 				<form action="" method="post">
-					<!-- se utiliza este form para agregar la informacion al carrito de compras-->
-
+					<!-- Use this form to add the product information to the shopping cart -->
 					<input type="hidden" name="id" id="id" value="<?php echo openssl_encrypt($txtID, COD, KEY); ?>">
 					<input type="hidden" name="nombre" id="nombre"
 						value="<?php echo openssl_encrypt($txtNombre, COD, KEY); ?>">
@@ -124,16 +118,15 @@ $conexion = null;
 						value="<?php echo openssl_encrypt($txtprecio_venta, COD, KEY); ?>">
 					<input type="hidden" name="cantidad" id="cantidad"
 						value="<?php echo openssl_encrypt(1, COD, KEY); ?>">
-					<input type="number" name="cantidad" id="cantidad" value="1" min="1" max="10">
-					<button class="btn-add-to-cart" name="btnAccion" value="Agregar" type="submit">AGREGAR AL
-						CARRITO</button>
-
-
+					<?php if ($producto['producto_cantidad'] > 0) { ?>
+						<input type="number" name="cantidad" id="cantidad" value="1" min="1"
+							max="<?php echo $producto['producto_cantidad']; ?>">
+						<button class="agregar" name="btnAccion" value="Agregar" type="submit">AGREGAR AL CARRITO</button>
+					<?php } else { ?>
+						<p>Producto agotado</p>
+					<?php } ?>
 				</form>
-
 			</div>
-
-
 
 			<div class="container-additional-information">
 				<div class="title-additional-information">
@@ -163,29 +156,16 @@ $conexion = null;
 					<a href="#"><i class="fa-brands fa-twitter"></i></a>
 					<a href="#"><i class="fa-brands fa-instagram"></i></a>
 					<a href="#"><i class="fa-brands fa-pinterest"></i></a>
-
-
-
-
-
 				</div>
 			</div>
-
-
 		</div>
 	</main>
-
-
 </div>
-
-
-
 
 <script src="../js/kit.js"></script>
 <script src="../js/img.js"></script>
 
-
-
-
-
-<?php include("../template/pie_catalogo.php"); ?>
+<?php
+// Include the footer file
+include("../template/pie_catalogo.php");
+?>
