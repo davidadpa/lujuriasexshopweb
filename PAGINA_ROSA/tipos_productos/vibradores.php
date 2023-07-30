@@ -64,7 +64,7 @@ $lista_producto=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
        <?php foreach($lista_producto as $producto){
         
         $txtID = $producto['producto_id']; // Obtener el ID del producto dentro del bucle
-        
+        $inventario = $producto['producto_cantidad']; // Se crea variable inventario para limitar la cantidad de compra que puede realizar el cliente
         ?> 
 
 
@@ -83,32 +83,35 @@ $lista_producto=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                 >
                 </a>
                 <div class="card-body">
-                
-                  <h4 clss="nombre"><?php echo $producto['producto_nombre'];?></h4>
-                  <h5 class="precio">$<?php echo $producto['producto_precio_venta']; ?></h5>
-                  <p class="descri"><?php echo $producto['producto_descripcion']; ?></p>
-                  
-                  <form action="" method="post"><!-- informacion para agregar productos al carrito--> 
-
-                      <input type="hidden" name="id" id="id" value="<?php echo openssl_encrypt($producto['producto_id'],COD,KEY);?>"> 
-                      <input type="hidden" name="nombre" id="nombre" value="<?php echo openssl_encrypt($producto['producto_nombre'],COD,KEY);?>">
-                      <input type="hidden" name="precio" id="precio" value="<?php echo openssl_encrypt($producto['producto_precio_venta'],COD,KEY);?>">
-                      <input type="number" name="cantidad" id="cantidad" value="1" min="1" max="10">
-                      <button class="agregar" name="btnAccion" value="Agregar" type="submit">AGREGAR AL CARRITO</button>
-                      
-                    </form>
-
+              <h4 class="nombre">
+                <?php echo $producto['producto_nombre']; ?>
+              </h4>
+              <h5 class="precio">$<?php echo $producto['producto_precio_venta']; ?></h5>
+              <p class="descri"><?php echo $producto['producto_descripcion']; ?></p>
+              <p class=""> Cantidad disponible: <br>
+                <?php echo $producto['producto_cantidad']; ?>
+              </p>
               
-                    
-                </div>
-              </div>
+              <form action="" method="post"><!-- información para agregar productos al carrito-->
+                <input type="hidden" name="id" id="id"
+                  value="<?php echo openssl_encrypt($producto['producto_id'], COD, KEY); ?>">
+                <input type="hidden" name="nombre" id="nombre"
+                  value="<?php echo openssl_encrypt($producto['producto_nombre'], COD, KEY); ?>">
+                <input type="hidden" name="precio" id="precio"
+                  value="<?php echo openssl_encrypt($producto['producto_precio_venta'], COD, KEY); ?>">
+                <?php if ($producto['producto_cantidad'] > 0) { ?>
+                  <input type="number" name="cantidad" id="cantidad" value="1" min="1" max="<?php echo $inventario; ?>">
+                  <button class="agregar" name="btnAccion" value="Agregar" type="submit">AGREGAR AL CARRITO</button>
+                <?php } else { ?>
+                  <p>Producto agotado</p>
+                <?php } ?>
+              </form>
             </div>
-            
-            <?php } ?>
-
+          </div>
         </div>
-       
-      </div>
+      <?php } ?>
+    </div>
+  </div>
       
       </main>
 

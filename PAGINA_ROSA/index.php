@@ -65,9 +65,10 @@ $lista_producto = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
               </h4>
               <h5 class="precio">$<?php echo $producto['producto_precio_venta']; ?></h5>
               <p class="descri"><?php echo $producto['producto_descripcion']; ?></p>
-              <p class="descri"> Cantidad disponible: <br>
+              <p class=""> Cantidad disponible: <br>
                 <?php echo $producto['producto_cantidad']; ?>
               </p>
+
               <form action="" method="post"><!-- información para agregar productos al carrito-->
                 <input type="hidden" name="id" id="id"
                   value="<?php echo openssl_encrypt($producto['producto_id'], COD, KEY); ?>">
