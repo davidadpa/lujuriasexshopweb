@@ -1,8 +1,8 @@
+ 
 <?php
 include("../../administrador\seccion/template-sections\barra-vertical.php");
+include("../../administrador\seccion\productos.php");
 
-include("../../administrador/config/db.php");
-include("../../carrito/carrito.php"); // conexion con el carrito de compras
 // Obtener el ID del producto desde $_GET['id']
 $txtID = $_GET['id'];
 $sentenciaSQL = $conexion->prepare("SELECT * FROM tlb_producto"); //CREA LISTA DE PRODUCTOS DESDE LA BASE DE DATOS
@@ -50,34 +50,32 @@ $conexion = null;
 <head>
 	<link rel="stylesheet" href="../../administrador\css\style-producto.css">
 </head>
-<div class="bloque">
-
-	<div class="contenido">
+<div class="contenido_tabla">
+        <div class="tabla">
+	
+		<div class="container">
 		<br>
-
-		<?php if ($mensaje != "") { ?>
+		<?php if (!empty($mensaje)) { ?>
 			<div class="alert alert-success">
 				<?php echo $mensaje; ?>
-				<a href="../../carrito/mostrar_carrito.php" class="badge badge-success">Ver carritoCarrito (
-					<?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> Referencias agregadas)
-				</a><!-- se utiliza para que tiga la cantidad de los articulos agregados-->
+				<a href="../../carrito/mostrar_carrito.php" class="badge badge-success">Ver carrito (
+					<?php echo (!empty($_SESSION['CARRITO'])) ? count($_SESSION['CARRITO']) : 0; ?> Referencias agregadas)
+				</a>
 			</div>
 		<?php } ?>
 	</div>
 
-    <div class="container-img">
-  <img class="primera" src="../../img/<?php echo $imagen_producto; ?>" alt="Producto" id="main-image">
-
- 
-</div>
-
-
-
+	<main>
+		<div class="container-img">
+			<img class="primera" src="../../img/<?php echo $imagen_producto; ?>" alt="Producto" id="main-image">
+		</div>
 
 		<div class="container-info-product">
 			<div class="container-price">
 				<span>
-					<?php echo '<h1>' . $txtNombre . '</h1>'; ?>
+					<h1>
+						<?php echo $txtNombre; ?>
+					</h1>
 				</span>
 			</div>
 
@@ -88,27 +86,26 @@ $conexion = null;
 				</div>
 				<div class="text-description">
 					<p>
-						<?php echo '<h4>' . $txtdescripcion . '</h4>'; ?>
+					<h4>
+						<?php echo $txtdescripcion; ?>
+					</h4>
 					</p>
 				</div>
 			</div>
 
-
 			<span>
-				<?php echo '<h4>Precio: $' . $txtprecio_venta . '</h4>'; ?>
+				<h4>Precio: $
+					<?php echo $txtprecio_venta; ?>
+				</h4>
+				<br>
+				 <p class="descri"> Cantidad disponible:
+                <?php echo $producto['producto_cantidad']; ?>
+              </p>
 			</span>
 
-
-
-
-
 			<div class="container-add-cart">
-
-
-
 				<form action="" method="post">
-					<!-- se utiliza este form para agregar la informacion al carrito de compras-->
-
+					<!-- Use this form to add the product information to the shopping cart -->
 					<input type="hidden" name="id" id="id" value="<?php echo openssl_encrypt($txtID, COD, KEY); ?>">
 					<input type="hidden" name="nombre" id="nombre"
 						value="<?php echo openssl_encrypt($txtNombre, COD, KEY); ?>">
@@ -116,16 +113,15 @@ $conexion = null;
 						value="<?php echo openssl_encrypt($txtprecio_venta, COD, KEY); ?>">
 					<input type="hidden" name="cantidad" id="cantidad"
 						value="<?php echo openssl_encrypt(1, COD, KEY); ?>">
-					<input type="number" name="cantidad" id="cantidad" value="1" min="1" max="10">
-					<button class="btn-add-to-cart" name="btnAccion" value="Agregar" type="submit">AGREGAR AL
-						CARRITO</button>
-
-
+					<?php if ($producto['producto_cantidad'] > 0) { ?>
+						<input type="number" name="cantidad" id="cantidad" value="1" min="1"
+							max="<?php echo $producto['producto_cantidad']; ?>">
+						<button class="agregar" name="btnAccion" value="Agregar" type="submit">AGREGAR AL CARRITO</button>
+					<?php } else { ?>
+						<p>Producto agotado</p>
+					<?php } ?>
 				</form>
-
 			</div>
-
-
 
 			<div class="container-additional-information">
 				<div class="title-additional-information">
@@ -157,11 +153,10 @@ $conexion = null;
 					<a href="#"><i class="fa-brands fa-pinterest"></i></a>
 				</div>
 			</div>
-		</div>   
+		</div>
 	</main>
 </div>
-
-
+</div>
 
 
 <script src="../../js/kit.js"></script>

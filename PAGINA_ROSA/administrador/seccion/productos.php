@@ -230,6 +230,12 @@ switch($accion){ //Sirve para ingresar los tatos a la base de datos
   $sentenciaSQL->execute();
   $lista_producto=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC); 
 
+  
+  $sentenciaSQL= $conexion->prepare("DELETE FROM categoria WHERE categoria_id=:categoria_id"); 
+  $sentenciaSQL->bindParam(':categoria_id',$txtID);
+  $sentenciaSQL->execute();
+  $lista_producto=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC); 
+
 
   
     /*if(isset($producto["producto_imagen_2"]) &&($producto["producto_imagen_2"]!="imagen.jpg")){

@@ -1,26 +1,26 @@
 <?php include("../../administrador\seccion/template-sections\barra-vertical.php"); 
-include("../config/db.php"); 
+include("../../administrador\seccion\productos.php"); 
 ?>
 
 <?php
 try {
     // Realizar la consulta
-    $sentenciaSQL = $conexion->prepare("SELECT * FROM tlb_clientes");
+    $sentenciaSQL = $conexion->prepare("SELECT * FROM categoria");
     $sentenciaSQL->execute();
     
     // Obtener los resultados como un arreglo asociativo
-    $lista_clientes = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
+    $lista_tipo = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 } catch(PDOException $e) {
     echo "Error en la consulta: " . $e->getMessage();
 }
 
 // Función de comparación para ordenar por cliente_id de menor a mayor
 function compararPorClienteID($a, $b) {
-    return $a['cliente_id'] - $b['cliente_id'];
+    return $a['categoria_id'] - $b['categoria_id'];
 }
 
 // Ordenar el arreglo $lista_clientes utilizando la función de comparación
-usort($lista_clientes, 'compararPorClienteID');
+usort($lista_tipo, 'compararPorClienteID');
 
 
 ?>
@@ -28,13 +28,6 @@ usort($lista_clientes, 'compararPorClienteID');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["accion"]) && $_POST["accion"] == "Borrar") {
         try {
-            // Obtener el ID del cliente a borrar
-            $cliente_id = $_POST["txtID"];
-            
-            // Preparar la consulta para eliminar el cliente
-            $sentenciaSQL = $conexion->prepare("DELETE FROM tlb_clientes WHERE cliente_id = :cliente_id");
-            $sentenciaSQL->bindParam(":cliente_id", $cliente_id, PDO::PARAM_INT);
-            
             // Ejecutar la consulta
             $resultado = $sentenciaSQL->execute();
             
@@ -56,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <head>
-    <link rel="stylesheet" href="../../administrador\css\lista_usuarios_style.css">
+    <link rel="stylesheet" href="../../administrador\css\tipos-style.css">
 </head>
 
 <body>
@@ -68,9 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-                <th>Correo</th>
-                <th>Telefono</th>
-                <th>Usuario</th>
+                <th>Ubicacion</th>
                 <th>Acciones</th>
                 </tr>
             </thead>
@@ -78,20 +69,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             <tbody class="contenido">
 
-                <?php foreach($lista_clientes as $usuario) { ?>
+                <?php foreach($lista_tipo as $tipo) { ?>
                 <tr>
-                <td><?php echo $usuario['cliente_id']; ?></td>
-                <td><?php echo $usuario['cliente_nombre']; ?></td>
-                <td><?php echo $usuario['cliente_correo']; ?></td>
-                <td><?php echo $usuario['cliente_telefono']; ?></td>
-                <td><?php echo $usuario['cliente_usuario']; ?></td>
+                <td><?php echo $tipo['categoria_id']; ?></td>
+                <td><?php echo $tipo['categoria_nombre']; ?></td>
+                <td><?php echo $tipo['categoria_ubicacion']; ?></td>
                 <td>
                     <form method="post">
-
-                    <input type="hidden" name="txtID" id="txtID" value="<?php echo $usuario['cliente_id']; ?>"/>
-
-
-               
+                    <input type="hidden" name="txtID" id="txtID" value="<?php echo $tipo['categoria_id']; ?>"/>
                     <input type="submit" name="accion" value="Borrar" class="btn btn-danger"/>
                     </form>
                 </td>

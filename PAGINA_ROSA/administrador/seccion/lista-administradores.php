@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <td>
                             <form method="post">
                                 <input type="hidden" name="txtID" id="txtID" value="<?php echo $admin['usuario_admin_id']; ?>"/>
-                                <input type="submit" name="accion" value="Modificar" class="btn btn-primary"/>
+ 
                                 <input type="submit" name="accion" value="Borrar" class="btn btn-danger"/>
                             </form>
                         </td>
