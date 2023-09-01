@@ -1,5 +1,10 @@
 
 <?php
+
+
+define("KEY", "moustro315"); /*llave para encriptar informacion*/
+define("COD", "AES-128-ECB"); /*METODO DE INCRIPTACION*/
+
 $host="localhost";
 $bd="sexshop_bd";
 $usuario="root";

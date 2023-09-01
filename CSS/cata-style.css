@@ -1,11 +1,4 @@
 
-.container-title {
-	padding: 30px;
-	background-color: #eee;
-	margin-bottom: 50px;
-	color: #222;
-    margin-top: 60px;
-}
 
 main {
 	display: flex;
@@ -17,15 +10,16 @@ main {
 .container-img {
     background-color: #2222225d;
 	flex: 1;
-    position: relative;
-    text-align: center;
-    padding-top: 10px;
+	width: 850px;
+	overflow-x: hidden;
+	text-align: center;
+	margin-top: 150px;
+}
+.container-img img{
+	width: 500px;
 }
 
-.primera{
-    width: 500px;
-    
-}
+
 
 .thumbnail-images {
     display: flex;

@@ -1,126 +1,101 @@
-<?php include("template/Navegador.php"); ?>
-<?php include("template/inicio.php"); ?>
 <?php
-include("administrador/config/db.php"); 
+include("template/cabecera_index.php");
 
-$sentenciaSQL= $conexion->prepare("SELECT * FROM tlb_producto"); //CREA LISTA DE PRODUCTOS DESDE LA BASE DE DATOS
-$sentenciaSQL->execute();
-$lista_producto=$sentenciaSQL->fetchAll(PDO::FETCH_ASSOC); 
+require("config/config.php");
+include("administrador/config/db.php");
+include("carrito/carrito.php");
 
-
-try {
-    // Establecer el modo de error de PDO a excepción
-    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // Tu consulta para obtener los productos de la base de datos
-    $consulta = "SELECT * FROM tlb_producto";
-    $resultado = $conexion->query($consulta);
-
-    // Verificar si hay resultados
-    if ($resultado->rowCount() > 0) {
-        // Recorrer los productos utilizando el bucle foreach
-        while ($producto = $resultado->fetch(PDO::FETCH_ASSOC)) {
-            // Acceder a los datos del producto
-            $txtID = $producto['producto_id'];
-            $txtNombre = $producto['producto_nombre'];
-            $txtdescripcion = $producto['producto_descripcion'];
-            $txtprecio_venta = $producto['producto_precio_venta'];
-            $imagen_producto = $producto['producto_imagen'];
-            // ... Otros campos del producto
-
-        }
-    } else {
-        echo 'No se encontraron productos.';
-    }
-} catch (PDOException $e) {
-    echo "Error al conectar a la base de datos: " . $e->getMessage();
+// Verificar si hay un mensaje y mostrarlo en caso de que exista
+$mensaje = ""; // Se define $mensaje para evitar errores si no está definido en otra parte del código.
+if (isset($_SESSION['mensaje'])) {
+  $mensaje = $_SESSION['mensaje'];
+  unset($_SESSION['mensaje']); // Eliminar el mensaje para que no se muestre nuevamente en otras páginas.
 }
 
-// Cerrar la conexión a la base de datos
-$conexion = null;
+// Consulta para obtener los productos más vendidos
+$sentenciaSQL = $conexion->prepare("SELECT * FROM tlb_producto WHERE producto_oferta = 'lo_mas_vendido'");
+$sentenciaSQL->execute();
+$lista_producto = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css\index-style.css">
-    <link rel="stylesheet" href="CSS\catalogo-style.css">
-    
-    <title>Document</title>
-    </head>
-    <body>
-            <div class="menu-iconos">
-                <ul>
-                    <a href=""><img  src="img/iconos/recoleccion-discreta.png" alt=""></a>
-                    <a href=""><img  src="Img/Iconos/entrega-rapida.png"></a>
-                    <a href=""><img  src="Img/Iconos/entrega-urgente.png"></a>
-                    <a href=""><img  src="Img/Iconos/metodo-de-pago.png"></a>
-                </ul>
-            </div>
-
-            <div class="Promociones">
-                <ul>
-                    <a href=""><img src="Img/Pomociones/bola china.jpg"></a>
-                    <a href=""><img src="Img/Pomociones/CEq-aceites-para-masajes-1.jpg"></a>
-                    <a href=""><img src="img/Pomociones/copa mestrual.jpg"></a>
-                    <a href=""><img src="Img/Pomociones/slider vibradores.jpg"></a>
-                    <a href=""><img src="img/Pomociones/cosoladores varios 3.jpg"></a>
-                    <a href=""><img src="img/Pomociones/cosoladores varios.jpg"></a>
-                    <a href=""><img src="img/Pomociones/jugetes anales -1.jpg"></a>
-                    <a href=""><img src="Img/Pomociones/jugetes anales -2.jpg" alt=""></a>
-                    <a href=""><img src="Img/Pomociones/jugetes anales -3.jpg"></a>
-                    <a href=""><img src="Img/Pomociones/slider vibradores.jpg"></a>
-                    <a href=""><img src="Img/Pomociones/bola china.jpg"></a>
-                    <a href=""><img src="Img/Pomociones/CEq-aceites-para-masajes-1.jpg"></a>
-                </ul>
-            
-            
-            </div>
-            <article class="TOP">
-                        <div class="Top">
-                            <h2 class="Titulo_Top">Lo mas Vendido</h2><br>
-                            <a><img src="img/productos/cuadro.jpg"></a>
-                            <a><img src="img/productos/cuadro.jpg"></a>
-                            <a><img src="img/productos/cuadro.jpg"></a>
-                            <a><img src="img/productos/cuadro.jpg"></a>
-                            <a><img src="img/productos/cuadro.jpg"></a>
-                            <a><img src="img/productos/cuadro.jpg"></a>
-                            <a><img src="img/productos/cuadro.jpg"></a>
-                            <a><img src="img/productos/cuadro.jpg"></a>
-                            <a><img src="img/productos/cuadro.jpg"></a>
-                            <a><img src="img/productos/cuadro.jpg"></a>
-                            <a><img src="img/productos/cuadro.jpg"></a>
-                            <a><img src="img/productos/cuadro.jpg"></a>
-                        </div>
-
-                    </article>
-                    <div class="Catalogo">
-    <div class="productos">
-        <div class="producto">
-        <?php foreach($lista_producto as $producto) {
-            $txtID = $producto['producto_id']; // Obtener el ID del producto dentro del bucle
-        ?>
-            <div class="container_v">
-                <div class="card_v"> 
-                    <a href="catalogo.php?id=<?php echo $txtID; ?>"> <!-- Enlace a la página del producto con el ID -->
-                        <img src="img/<?php echo $producto['producto_imagen']; ?>" alt="">
-                        <h4 class="nombre"><?php echo $producto['producto_nombre']; ?></h4>
-                        <h5 class="descri">Descripcion:<br><?php echo $producto['producto_descripcion']; ?></h5>
-                        <h4 class="precio">Precio:<br>$<?php echo $producto['producto_precio_venta']; ?></h4>
-                        <button class="ver-mas">Ver más</button>
-                    </a>
-                </div>
-            </div>
-            <br>
-        <?php } ?>
-        </div>
+<div class="container">
+  <br>
+  <?php if (!empty($mensaje)) { ?>
+    <div class="alert alert-success">
+      <script>alert("<?php echo $mensaje; ?>");</script>
+      <a href="carrito/mostrar_carrito.php" class="badge badge-success">Ver carrito (
+        <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> Referencias agregadas)
+      </a>
     </div>
+  <?php } ?>
 </div>
-           <footer>
-             <?php include("template/pie.php"); ?>
-            </footer>
+<br>
 
-    </body>
-</html>
+<head>
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/style-productos_masvendidos.css">
+  <!-- Se incluye la librería jQuery y el script de Bootstrap para que el popover funcione -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+</head>
+
+<main>
+  <div class="Titulo">
+    <h2>Los más vendidos</h2>
+  </div>
+  <div class="productos">
+    <div class="producto">
+      <?php foreach ($lista_producto as $producto) {
+         $inventario = $producto['producto_cantidad']; // Se crea variable inventario para limitar la cantidad de compra que puede realizar el cliente
+         $txtID = $producto['producto_id']; // Obtener el ID del producto dentro del bucle
+      ?>
+        <div class="container_v">
+          <div class="card_v">
+            <a href="catalogo/catalogo.php?id=<?php echo $txtID; ?>">
+              <img title="<?php echo $producto['producto_nombre']; ?>" alt="<?php echo $producto['producto_nombre']; ?>"
+                class="card-img-top" src="img/<?php echo $producto['producto_imagen']; ?>" data-toggle="popover"
+                data-trigger="hover" data-content="<?php echo $producto['producto_descripcion']; ?>" height="317px">
+            </a>
+            <div class="card-body">
+              <h4 class="nombre">
+                <?php echo $producto['producto_nombre']; ?>
+              </h4>
+              <h5 class="precio">$<?php echo $producto['producto_precio_venta']; ?></h5>
+              <p class="descri"><?php echo $producto['producto_descripcion']; ?></p>
+              <p class=""> Cantidad disponible: <br>
+                <?php echo $producto['producto_cantidad']; ?>
+              </p>
+
+              <form action="" method="post"><!-- información para agregar productos al carrito-->
+                <input type="hidden" name="id" id="id"
+                  value="<?php echo openssl_encrypt($producto['producto_id'], COD, KEY); ?>">
+                <input type="hidden" name="nombre" id="nombre"
+                  value="<?php echo openssl_encrypt($producto['producto_nombre'], COD, KEY); ?>">
+                <input type="hidden" name="precio" id="precio"
+                  value="<?php echo openssl_encrypt($producto['producto_precio_venta'], COD, KEY); ?>">
+                <?php if ($producto['producto_cantidad'] > 0) { ?>
+                  <input type="number" name="cantidad" id="cantidad" value="1" min="1" max="<?php echo $inventario; ?>">
+                  <button class="agregar" name="btnAccion" value="Agregar" type="submit">AGREGAR AL CARRITO</button>
+                <?php } else { ?>
+                  <p>Producto agotado</p>
+                <?php } ?>
+              </form>
+            </div>
+          </div>
+        </div>
+      <?php } ?>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Actualización de la inicialización del popover
+  $(function () {
+    $('[data-toggle="popover"]').popover();
+  });
+</script>
+
+<?php include("template/pie_index.php"); ?>

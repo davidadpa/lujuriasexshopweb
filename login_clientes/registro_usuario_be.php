@@ -27,7 +27,7 @@ if(mysqli_num_rows($verificar_correo) > 0){
     echo '
     <script>
         alert("Este correo ya esta registrado, intenta con otro correo diferente");
-        window.location ="../login_clientes.php"; 
+        window.location ="login_clientes.php"; 
     </script>
     ';
     exit();//termina el script del codigo para que no se utilice el codigo de y se ingrese el mismo correo 2 veces
@@ -39,7 +39,7 @@ if(mysqli_num_rows($verificar_usuario) > 0){
     echo '
     <script>
         alert("Este usuario ya esta registrado, intenta con otro usuario diferente");
-        window.location ="../login_clientes.php"; 
+        window.location ="login_clientes.php"; 
     </script>
     ';
     exit();//termina el script del codigo para que no se utilice el codigo de y se ingrese el mismo correo 2 veces
@@ -52,14 +52,14 @@ if($ejecutar){
     echo '
     <script>
         alert("Usuario Creado exitosamente");
-        window.location ="../login_clientes.php"; 
+        window.location ="login_clientes.php"; 
     </script>
     ';
 }else{
     echo '
     <script>
         alert("Intentalo de nuevo, Usuario no almacenado");
-        window.location ="../login_clientes.php"; 
+        window.location ="login_clientes.php"; 
     </script>
     ';
 }

@@ -1,6 +1,8 @@
 <?php include("../../administrador\seccion/template-sections\barra-vertical.php") ?>
 
-<?php include("../../administrador\seccion\productos.php"); ?>
+<?php include("../../administrador\seccion\productos.php");
+	$txtID = $_GET['id'];
+?>
 <?php
 
 try {
@@ -19,7 +21,6 @@ try {
 // Cerrar la conexión
 $conn = null;
 ?>
-
 <head>
 <link rel="stylesheet" href="../../administrador\css\agregar-style.css">
 </head>
@@ -82,8 +83,8 @@ $conn = null;
           <div class = "form-group">
           <label for="txtcantidad">Inventario inicial:</label>
           <input type="number" class="form-control" value="<?php echo $txtcantidad; ?>" name="txtcantidad" id="txtcantidad" placeholder="Inventario inicial a ingresar">
-          </div> 
-           
+          </div>
+
           <div class="form-group">
     <label for="txttipo">Tipo de producto:</label>
     <select class="form-control" value="<?php echo $txttipo; ?>" name="txttipo" id="txttipo">
@@ -144,8 +145,9 @@ $conn = null;
 
 
           <div class="btn-group" role="group" aria-label="">
-            <input type="submit" name="accion" value="agregar" class="btn btn-success">
-            
+            <input type="submit" name="accion" value="Seleccionar" class="btn btn-primary"/>
+            <button type="submit" name="accion" value="modificar" class="btn btn-warning">Modificar</button>
+            <button type="button" name="accion" value="Cancelar" class="btn btn-info">Cancelar</button>
             
           </div>
 
