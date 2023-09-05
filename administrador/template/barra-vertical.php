@@ -22,8 +22,7 @@
       <li><a href="../administrador\seccion\lista_productos.php">Lista de Productos</a></li>
       <li><a href="../administrador\seccion\lista-administradores.php">Lista de administradores</a></li>
       <li><a href="../administrador\seccion\lista-usarios.php">Lista de clientes</a></li>
-      <li><a href="../administrador\seccion\Lista_tipo-producto.php">Lista de tipos de Productos</a></li>
-      <li><a href="../administrador\seccion\Configuraciones.php">Configuración</a></li>
+      <li><a href="#">Configuración</a></li>
     </ul>
   </div>
   

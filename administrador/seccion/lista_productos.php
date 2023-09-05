@@ -30,7 +30,7 @@
             
             <tbody class="contenido">
 
-                <?php foreach($lista_producto as $producto) {  $txtID = $producto['producto_id']; // Obtener el ID del producto dentro del bucle?>
+                <?php foreach($lista_producto as $producto) { ?>
                 <tr>
                 <td><?php echo $producto['producto_id']; ?></td>
                 <td><?php echo $producto['producto_nombre']; ?></td>
@@ -54,7 +54,8 @@
                     <form method="post">
 
                     <input type="hidden" name="txtID" id="txtID" value="<?php echo $producto['producto_id']; ?>"/>
-                    <a href="../../administrador\seccion\modificar-productos.php?id=<?php echo $txtID; ?>" type="submit" name="accion"  class="btn btn-primary">Modificar </a>
+
+                    <input type="submit" name="accion" value="Seleccionar" class="btn btn-primary"/>
                     <input type="submit" name="accion" value="Borrar" class="btn btn-danger"/>
                     </form>
                 </td>

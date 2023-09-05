@@ -31,7 +31,7 @@ try {
     die();
 }
 
-//nombre del cliente
+// Obtener el nombre del cliente basado en el correo electrónico
 try {
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -77,7 +77,7 @@ $pdf = new FacturaPDF();
 $pdf->AddPage();
 
 // Datos de la factura
-$pdf->CeldaFactura('Numero de Factura:');
+$pdf->CeldaFactura('ID Venta:');
 $pdf->Cell(0, 10, $id_venta, 0, 1, 'L');
 
 $pdf->CeldaFactura('Correo del Cliente:');

@@ -1,20 +1,17 @@
-.contenido_tabla {
-    width: 100%;
-    display: flex;
 
-    overflow: auto;
-	margin-top: -25px;
+ /*style de los productos independientes*/
+
  
-  }
 
-  .tabla{
-    width: 100%;
+  .contenido{
+    width: 800px;
+    height: 560px;
     margin-left: 230px;
+	background-color: #1bbeb4;
+    overflow: auto;
+	display: flex;
   }
-
- 
-
-main {
+ main {
 	display: flex;
 	gap: 30px;
 	margin-bottom: 80px;
@@ -22,28 +19,31 @@ main {
 }
 
 .container-img {
-    background-color: #2222225d;
-	flex: 1;
-	width: 850px;
-	height: 560px;
-	overflow-x: hidden;
-	text-align: center;
-	 
-}
-.container-img img{
+    background-color: #ff00005d;
 	width: 500px;
-	height: 560px;
+	overflow-x: hidden;
+	margin-left: 230px;
+	text-align: center;
+}
+
+.primera{
+    width: 400px;
+    height: 400px;
 }
 
 
 
 .thumbnail-images {
-    display: flex;
+
     margin-top: 0px;
-    margin-left: 100px;
     overflow: auto;
    
  
+  }
+
+  .thumbnail-images img{
+    width: 80px;
+    height: 80px;
   }
   
   .thumbnail {
@@ -54,15 +54,16 @@ main {
     transition: all 0.25s;
   }
   
-  .thumbnail:hover {
+  .thumbnail :hover {
     box-shadow: 0px 40px 40px rgba(244, 0, 0, 0.744); 
 
   }
 
 .container-info-product {
-	flex: 1;
+	
 	display: flex;
 	flex-direction: column;
+	
 
 }
 
@@ -256,3 +257,11 @@ main {
 	color: #1bbeb4;
 }
 
+
+
+footer {
+	padding: 30px;
+	background-color: #eee;
+	margin-top: 50px;
+	color: #222;
+}

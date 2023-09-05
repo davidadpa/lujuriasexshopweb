@@ -1,33 +1,11 @@
 <?php include("../../administrador\seccion/template-sections\barra-vertical.php") ?>
 
-<?php include("../../administrador\seccion\productos.php"); ?>
-<?php
-
-try {
-
-
-    // Obtener la lista de categorías desde la base de datos
-    $sql = "SELECT categoria_id, categoria_nombre FROM categoria";
-    $stmt = $conexion->prepare($sql);
-    $stmt->execute();
-    $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-} catch (PDOException $e) {
-    echo "Error al obtener las categorías: " . $e->getMessage();
-}
-
-// Cerrar la conexión
-$conn = null;
-?>
-
+<?php include("../../administrador\seccion\productos.php") ?>
 <head>
-<link rel="stylesheet" href="../../administrador\css\agregar-style.css">
 </head>
 <body>
     
 <br>
-<div class="contenido_tabla">
-        <div class="tabla">
 <div align=center>
   <div class="col-md-7">
 
@@ -82,16 +60,22 @@ $conn = null;
           <div class = "form-group">
           <label for="txtcantidad">Inventario inicial:</label>
           <input type="number" class="form-control" value="<?php echo $txtcantidad; ?>" name="txtcantidad" id="txtcantidad" placeholder="Inventario inicial a ingresar">
-          </div> 
-           
-          <div class="form-group">
-    <label for="txttipo">Tipo de producto:</label>
-    <select class="form-control" value="<?php echo $txttipo; ?>" name="txttipo" id="txttipo">
-        <?php foreach ($categorias as $categoria) : ?>
-            <option value="<?php echo $categoria['categoria_id']; ?>"><?php echo $categoria['categoria_nombre']; ?></option>
-        <?php endforeach; ?>
-    </select>
-</div>
+          </div>
+
+          <div class = "form-group">
+            <label for="txttipo">Tipo de producto:</label>
+            <select type="text" class="form-control" value="<?php echo $txttipo; ?>" name="txttipo" id="txttipo"> 
+              <option value="sin_clasificar">sin_clasificar</option>
+              <option value="vibradores">vibradores</option>
+              <option value="consoladores">consoladores</option>
+              <option value="jugetes_anales">jugetes_anales</option>
+              <option value="hombres">hombres</option>
+              <option value="lubricantes">lubricantes</option>
+              <option value="lenceria">lenceria</option>
+              <option value="sado">sado</option>
+              <option value="extras">extras</option>
+            </select> 
+          </div>
 
           <div class = "form-group">
             <label for="txtoferta">Tipo de oferta:</label>
@@ -145,6 +129,8 @@ $conn = null;
 
           <div class="btn-group" role="group" aria-label="">
             <input type="submit" name="accion" value="agregar" class="btn btn-success">
+            <button type="submit" name="accion" value="modificar" class="btn btn-warning">Modificar</button>
+            <button type="button" name="accion" value="Cancelar" class="btn btn-info">Cancelar</button>
             
             
           </div>
@@ -160,6 +146,4 @@ $conn = null;
 
   </div>
 </div>
-</div>
-                </div>
 </body>

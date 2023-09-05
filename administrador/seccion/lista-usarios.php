@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="hidden" name="txtID" id="txtID" value="<?php echo $usuario['cliente_id']; ?>"/>
 
 
-               
+                    <input type="submit" name="accion" value="Modificar" class="btn btn-primary"/>
                     <input type="submit" name="accion" value="Borrar" class="btn btn-danger"/>
                     </form>
                 </td>

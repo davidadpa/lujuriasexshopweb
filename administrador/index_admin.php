@@ -15,28 +15,20 @@ if(isset($_SESSION['usuario'])){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="../CSS\style_login_cliente.css">
     <link rel="stylesheet" href="css/style.css"> <!--conexion con el archivo css-->
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-  
+
 
   <div class="logo-titulo">
-
-  <a href="../Index.php"><img src="img/logo_nuevo_final.png" class="logo" alt="logo lujuriasexshop"></a>
+       
+        <img src="img/logo_nuevo_final.png" class="logo" alt="logo lujuriasexshop">
         
         <br>
     </div>
-      <div class="caja">
-      <div class="ingreso">
-          <a href="../login_clientes\login_clientes.php">
-          <button class="usuario">Usuarios</button>
-          </a>
-
-      </div>
-    </div>
+      
     <div class="container">
         <div class="row">
             <div class="col-md-4">

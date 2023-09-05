@@ -20,7 +20,7 @@ main{
     width: 100%;
     padding: 20px;
     margin: auto;
-   
+    margin-top: 100px;
 }
 
 .contenedor__todo{
@@ -168,43 +168,3 @@ main{
         position: relative;
     }
 }
-
-
-.ingreso {
-    margin-top: -110px;
-    text-align: right;
-    padding: 50px;
-    
-  }
-  
-  .ingreso button {
-    padding: 10px 20px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    font-weight: bold;
-    margin-left: -12px;
-  }
-  .ingreso :hover{
-    background-color: #dc3545;
-  }
-  
-  .empleado {
-    background-color: #ff00a6;
-  }
-  
-  .usuario {
-    background-color: #ff00dd;
-  }
-
-  .imagen-logo img{
-    width: 150px;
-    display: flex;
-    background-color: #c10fc742;
-    border-radius: 10px;
-    border-color: #c700507e;
-    border-style: solid;
-
-  }
