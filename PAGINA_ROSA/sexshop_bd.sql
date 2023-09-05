@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-08-2023 a las 02:30:19
+-- Tiempo de generación: 05-09-2023 a las 02:02:12
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -33,6 +33,25 @@ CREATE TABLE `categoria` (
   `categoria_ubicacion` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
+--
+-- Volcado de datos para la tabla `categoria`
+--
+
+INSERT INTO `categoria` (`categoria_id`, `categoria_nombre`, `categoria_ubicacion`) VALUES
+(20, 'vibradores', 'Almacén de Cali');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `oferta`
+--
+
+CREATE TABLE `oferta` (
+  `oferta_id` int(15) NOT NULL,
+  `oferta_nombre` varchar(15) NOT NULL,
+  `oferta_fecha` int(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
 -- --------------------------------------------------------
 
 --
@@ -53,7 +72,8 @@ CREATE TABLE `tlb_clientes` (
 --
 
 INSERT INTO `tlb_clientes` (`cliente_id`, `cliente_nombre`, `cliente_correo`, `cliente_telefono`, `cliente_usuario`, `cliente_contrasena`) VALUES
-(19, 'aas', 'administrador@gmail.com', '45546644', 'ffgg', 'e79afc434330a68f54a9b6a5eee2a655558b5dc8740a86e0344a1a2baecf98570b022311c2d3506826ee1923fd8652a7f6f91e1bbc28d9ed46ff48e64e192e1b');
+(19, 'aas', 'administrador@gmail.com', '45546644', 'ffgg', 'e79afc434330a68f54a9b6a5eee2a655558b5dc8740a86e0344a1a2baecf98570b022311c2d3506826ee1923fd8652a7f6f91e1bbc28d9ed46ff48e64e192e1b'),
+(20, 'juan', 'juan123@gmail.com', '2324324423', 'juan34op', 'd9e6762dd1c8eaf6d61b3c6192fc408d4d6d5f1176d0c29169bc24e71c3f274ad27fcd5811b313d681f7e55ec02d73d499c95455b6b5bb503acf574fba8ffe85');
 
 -- --------------------------------------------------------
 
@@ -98,9 +118,7 @@ CREATE TABLE `tlb_producto` (
 --
 
 INSERT INTO `tlb_producto` (`producto_id`, `producto_nombre`, `producto_descripcion`, `producto_componenetes`, `producto_modo_uso`, `producto_precauciones`, `producto_precio_compra`, `producto_precio_venta`, `producto_cantidad`, `producto_tipo`, `producto_oferta`, `producto_imagen`, `producto_imagen_2`, `producto_imagen_3`) VALUES
-(4664, 'asdsadasd', '', '', '', '', 0, 0, 0, '11', 'lo_mas_vendido', 0x313639303833323437345f45426b6a4a3930585941456f5675392e6a7067, 0x696d6167656e2e6a7067, 0x696d6167656e2e6a7067),
-(43335, 'dasdad', 'dddddddddddddddddddddddddddddddd', '', '', '', 0, 444, 44, '11', 'lo_mas_vendido', 0x313639303834373937325f32353133393038365f3331313032313530323734363134315f32323636383038345f6f2e706e67, 0x696d6167656e2e6a7067, 0x696d6167656e2e6a7067),
-(68768, 'aaaaaaaaaaaaaa', 'gdfg', '', '', '', 0, 65465, 127, 'sin_clasificar', 'ninguna', 0x313639303833343730375f44657363617267617220666f6e646f20726f6a6f207920726f73612c206865726d6f736f207920656c6567616e746520666f6e646f2064652074657874757261206d6f6465726e6120636f6e2068756d6f2c20766563746f722c20696c75737472616369c3b36e206772617469732e6a666966, 0x696d6167656e2e6a7067, 0x696d6167656e2e6a7067);
+(1, 'vibrador delta mercuri', 'vibrador de 3 velocidades ', '1 equipo y baterías recargables ', 'fisico', 'limpiar con frecuencia', 50000, 150000, 10, '20', 'ninguna', 0x313639333836313233375f506c7567205669627261646f72204a756c6965205376616b6f6d2e6a7067, 0x313639333836313431345f53756363696f6e61646f72205361746973667965722043757276792e6a7067, 0x313639333836313431355f496e7374727563746f7220646520506f736963696f6e65732e6a7067);
 
 -- --------------------------------------------------------
 
@@ -217,7 +235,12 @@ INSERT INTO `tlb_ventas` (`venta_id`, `venta_clavetransaccion`, `venta_paypaldat
 (102, 'r8r29git5edtvaermjh43icn85', '', '2023-07-31 13:02:47', 'administrador@gmail.com', 6646446.00, 'pago'),
 (103, 'nc43s4d7eh3dn5opivp2aschok', '', '2023-07-31 13:05:55', 'administrador@gmail.com', 6646446.00, 'pago'),
 (104, 'nc43s4d7eh3dn5opivp2aschok', '', '2023-07-31 13:07:30', 'administrador@gmail.com', 12.00, 'pago'),
-(105, 'nc43s4d7eh3dn5opivp2aschok', '', '2023-07-31 13:07:47', 'administrador@gmail.com', 12.00, 'pago');
+(105, 'nc43s4d7eh3dn5opivp2aschok', '', '2023-07-31 13:07:47', 'administrador@gmail.com', 12.00, 'pago'),
+(106, 'jf3aigk8trbs0gbg5rnie8fs4b', '', '2023-08-02 18:54:16', 'administrador@gmail.com', 444.00, 'pago'),
+(107, 'jf3aigk8trbs0gbg5rnie8fs4b', '', '2023-08-02 18:59:32', 'administrador@gmail.com', 1776.00, 'pago'),
+(108, 'jf3aigk8trbs0gbg5rnie8fs4b', '', '2023-08-02 19:07:47', 'administrador@gmail.com', 1776.00, 'pago'),
+(109, 'jf3aigk8trbs0gbg5rnie8fs4b', '', '2023-08-02 19:08:17', 'administrador@gmail.com', 1776.00, 'pago'),
+(110, 'jf3aigk8trbs0gbg5rnie8fs4b', '', '2023-08-02 19:09:12', 'administrador@gmail.com', 1776.00, 'pago');
 
 --
 -- Índices para tablas volcadas
@@ -228,6 +251,12 @@ INSERT INTO `tlb_ventas` (`venta_id`, `venta_clavetransaccion`, `venta_paypaldat
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`categoria_id`);
+
+--
+-- Indices de la tabla `oferta`
+--
+ALTER TABLE `oferta`
+  ADD PRIMARY KEY (`oferta_id`);
 
 --
 -- Indices de la tabla `tlb_clientes`
@@ -269,19 +298,25 @@ ALTER TABLE `tlb_ventas`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `categoria_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `categoria_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT de la tabla `oferta`
+--
+ALTER TABLE `oferta`
+  MODIFY `oferta_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `tlb_clientes`
 --
 ALTER TABLE `tlb_clientes`
-  MODIFY `cliente_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `cliente_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `tlb_detalle_ventas`
 --
 ALTER TABLE `tlb_detalle_ventas`
-  MODIFY `detalle_venta_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
+  MODIFY `detalle_venta_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
 
 --
 -- AUTO_INCREMENT de la tabla `tlb_usuario_admin`
@@ -293,7 +328,7 @@ ALTER TABLE `tlb_usuario_admin`
 -- AUTO_INCREMENT de la tabla `tlb_ventas`
 --
 ALTER TABLE `tlb_ventas`
-  MODIFY `venta_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `venta_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- Restricciones para tablas volcadas
